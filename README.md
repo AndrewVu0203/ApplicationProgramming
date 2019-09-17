@@ -1,2 +1,2 @@
 # ApplicationProgramming
-for Application Programming final project
+6 team members:
