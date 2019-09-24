@@ -2,10 +2,10 @@
 6 team members:
 * Issac Kelly
 * Martin Garcia
-* Robert
-* Josh
-* Andrew Nguyen
-* Shu Hong
+* Robert - qll833 
+* Josh Cherry 
+* Andrew Nguyen - bqf692
+* Shu Hong - vik361 
 
 Team info
 * Our goal: is to build a JavaFX-based Chess game app for desktop
