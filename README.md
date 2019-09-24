@@ -22,3 +22,6 @@ Class To Do List
 * Prepare a pitch
 * Video pitch
 * Instruction on README.md on how to run our project
+
+Resources 
+* https://docs.google.com/document/d/1qS5Ao1EAuhd1gGF5cNRrsuMQZUP4aEljKMruS4DHBF8/edit?usp=sharing
