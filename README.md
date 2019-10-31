@@ -13,6 +13,7 @@ Team info
 * Our scope: dummy random chess board, score board
 
 Code To Do List
+a
 
 Class To Do List
 * UI Design 
