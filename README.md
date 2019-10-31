@@ -5,7 +5,7 @@
 * Robert - qll833 
 * Josh Cherry 
 * Andrew Nguyen - bqf692
-* Shuyu Hong - vik361 
+* Shuyu Hong - vik361 1111
 
 Team info
 * Our goal: is to build a JavaFX-based Chess game app for desktop
