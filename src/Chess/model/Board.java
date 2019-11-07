@@ -1,4 +1,4 @@
-package Chess;
+package Chess.model;
 
 public class Board{
     Team whiteTeam;

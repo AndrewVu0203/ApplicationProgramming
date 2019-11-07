@@ -1,5 +1,8 @@
 package Chess;
 
+import Chess.model.Board;
+import Chess.model.Piece;
+import Chess.model.Team;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,8 +13,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
+        Parent root = FXMLLoader.load(getClass().getResource("view/Chess.fxml"));
+        primaryStage.setTitle("Chess");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
 

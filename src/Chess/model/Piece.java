@@ -1,4 +1,4 @@
-package Chess;
+package Chess.model;
 
 public class Piece {
     String name;

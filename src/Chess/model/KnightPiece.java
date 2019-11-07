@@ -1,4 +1,6 @@
-package Chess;
+package Chess.model;
+
+import Chess.model.Piece;
 
 public class KnightPiece  extends Piece {
     public KnightPiece(String team) {
