@@ -5,6 +5,12 @@ public class Piece {
     String[] pos;
     String[] oldPos = {"x","x"};
     String team;
+    Block curPos;
+    String pieceType;
+    enum PieceType
+    {
+        Bishop, King, Queen, Pawn, Knight, Rock
+    }
 
     public Piece(String piece, String team){
         this.name = Abbreviate(piece);
@@ -26,6 +32,13 @@ public class Piece {
     private String Abbreviate(String str){
         if ("knight".equals(str.toLowerCase())) return "Kn";
         else return str.substring(0, 1).toUpperCase();
+    }
+
+    boolean isMoveValid(){
+        return false;
+    }
+
+    void move(Block pos){
 
     }
 

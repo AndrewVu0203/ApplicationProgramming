@@ -55,4 +55,8 @@ public class Team {
     public Piece[][] getPieces(){
         return this.pieces;
     }
+
+    Block playTurn(){
+        return new Block();
+    }
 }
