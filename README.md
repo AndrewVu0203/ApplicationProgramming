@@ -15,5 +15,3 @@ Resources
 * https://docs.google.com/document/d/1qS5Ao1EAuhd1gGF5cNRrsuMQZUP4aEljKMruS4DHBF8/edit?usp=sharing our google doc 
 
 * https://creately.com/diagram/example/hu3z6jqg1/online%20chess%20game%20 example uml diagram 
-
-* http://dashboard.genmymodel.com/personal/projects/_O2etoP_YEemrrdzmwAEMcA our uml diagram 
