@@ -4,6 +4,6 @@ import Chess.model.Piece;
 
 public class RookPiece extends Piece {
     public RookPiece(String team) {
-        super("rook", team);
+        super(PieceType.Rook, team);
     }
 }

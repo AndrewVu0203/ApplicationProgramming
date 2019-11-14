@@ -6,6 +6,7 @@ public class Block extends Button {
     int x;
     int y;
     int color;
+    Piece piece;
 
     public Block(){
     }
@@ -22,11 +23,19 @@ public class Block extends Button {
         this.x = x;
     }
 
+    public Piece getPiece() {
+        return piece;
+    }
+
     public int getY() {
         return y;
     }
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public void setPiece(Piece piece) {
+        this.piece = piece;
     }
 }
