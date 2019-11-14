@@ -7,10 +7,8 @@ public class Piece {
     String team;
     Block curPos;
     String pieceType;
-    enum PieceType
-    {
-        Bishop, King, Queen, Pawn, Knight, Rock
-    }
+    String imagePath;
+    enum PieceType {Bishop, King, Queen, Pawn, Knight, Rock}
 
     public Piece(String piece, String team){
         this.name = Abbreviate(piece);
@@ -21,12 +19,20 @@ public class Piece {
         this.pos = pos;
     }
 
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
     public String[] getPosition(){
         return this.pos;
     }
 
     public String getName(){
         return name;
+    }
+
+    public String getImagePath() {
+        return imagePath;
     }
 
     private String Abbreviate(String str){

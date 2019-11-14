@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Chess.controller.MenuController">
    <children>
       <Label layoutX="141.0" layoutY="34.0" prefHeight="49.0" prefWidth="318.0" text="Welcome to the Joe-Bobs' Chess Game!">
          <font>
@@ -24,12 +24,12 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="261.0" layoutY="154.0" mnemonicParsing="false" onAction="#comingSoon" prefHeight="40.0" prefWidth="79.0" text="1 P">
+      <Button layoutX="261.0" layoutY="154.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="79.0" text="1 P">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="261.0" layoutY="217.0" mnemonicParsing="false" onAction="#launchBoard" prefHeight="40.0" prefWidth="79.0" text="2 P">
+      <Button layoutX="261.0" layoutY="217.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="79.0" text="2 P">
          <font>
             <Font size="14.0" />
          </font>
