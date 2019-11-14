@@ -8,12 +8,12 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    // init() is good for connecting with EventHandler, unused at the moment
-    @Override
-    public void init() throws Exception {
-        super.init();
-        System.out.println("init()");
-    }
+//    // init() is good for connecting with EventHandler, unused at the moment
+//    @Override
+//    public void init() throws Exception {
+//        super.init();
+//        System.out.println("init()");
+//    }
 
     @Override
     public void start(Stage primaryStage) throws Exception{
