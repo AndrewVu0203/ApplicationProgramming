@@ -24,6 +24,13 @@ public class ChessController implements Initializable {
                 blocks[col][row] = new Block();
                 blocks[col][row].setPrefHeight(100);
                 blocks[col][row].setPrefWidth(100);
+                
+                if (row % 2 == 0 && col % 2 ==1){
+                    blocks[col][row].setStyle("-fx-background-color: AAA;");
+                }
+                if (row % 2 == 1 && col % 2 ==0){
+                    blocks[col][row].setStyle("-fx-background-color: AAA;");
+                }
 
                 blocks[col][row].setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
