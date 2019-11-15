@@ -1,13 +1,15 @@
 package Chess.model;
 
 public class Piece {
-    String[] pos;
-    String[] oldPos = {"x","x"};
-    String team;
-    PieceType pieceType;
-    String imagePath;
-    String path;
+    private int x = -1;
+    private int y = -1;
+    private String team = "";
+    private PieceType pieceType;
+    private String imagePath;
+    private String path;
     public enum PieceType {Bishop, King, Queen, Pawn, Knight, Rook}
+
+    public Piece(){};
 
     public Piece(PieceType piece, String team){
         this.pieceType = piece;
@@ -15,39 +17,44 @@ public class Piece {
         this.imagePath = "Chess/images/pieces/" + team.toLowerCase() + "_" + piece.toString().toLowerCase() + ".png";
     }
 
-    public void setPosition(String[] pos){
-        this.pos = pos;
+    public String abbreviate(String str){
+        if ("knight".equals(str.toLowerCase()))
+            return "Kn";
+        else
+            return str.substring(0, 1).toUpperCase();
     }
 
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
-    }
-
-    public String[] getPosition(){
-        return this.pos;
+    // This gets overwritten in each piece
+    public boolean isMoveValid(int x, int y, Block[][] blocks){
+        // Needs to return true
+        return true;
     }
 
     public String getImagePath() {
         return imagePath;
     }
 
-    private String abbreviate(String str){
-        if ("knight".equals(str.toLowerCase())) return "Kn";
-        else return str.substring(0, 1).toUpperCase();
+    public int getX() {
+        return x;
     }
 
-    public boolean isMoveValid(int x, int y, Block blocks[][]){
-        return false;
-    }
-
-    void move(Block pos){
-
+    public int getY() {
+        return y;
     }
 
     public String getTeam() {
     	return this.team;
     }
+
     public String getPath() {
 		return path;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 }
