@@ -6,6 +6,7 @@ public class Piece {
     String team;
     PieceType pieceType;
     String imagePath;
+    String path;
     public enum PieceType {Bishop, King, Queen, Pawn, Knight, Rook}
 
     public Piece(PieceType piece, String team){
@@ -35,7 +36,7 @@ public class Piece {
         else return str.substring(0, 1).toUpperCase();
     }
 
-    boolean isMoveValid(){
+    public boolean isMoveValid(int x, int y, Block blocks[][]){
         return false;
     }
 
@@ -43,4 +44,10 @@ public class Piece {
 
     }
 
+    public String getTeam() {
+    	return this.team;
+    }
+    public String getPath() {
+		return path;
+    }
 }

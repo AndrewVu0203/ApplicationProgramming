@@ -5,8 +5,8 @@ public class Board{
     Team blackTeam;
 
     public Board(Block block[][]){
-        block[4][0].setPiece(new Piece(Piece.PieceType.King, "Black"));
-
+        Piece BKing = new KingPiece("Black");
+        block[4][0].setPiece(BKing);
         block[3][0].setPiece(new Piece(Piece.PieceType.Queen, "Black"));
 
         block[5][0].setPiece(new Piece(Piece.PieceType.Bishop, "Black"));
