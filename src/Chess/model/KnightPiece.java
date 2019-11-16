@@ -8,7 +8,7 @@ public class KnightPiece  extends Piece {
         super(PieceType.Knight, team);
     }
 
-    /* This method will validate wether or not a move is legal */
+    /* This method will validate whether or not a move is legal */
     @Override
     public boolean isMoveValid(int x, int y, Block[][] blocks){
 		return false;

@@ -46,7 +46,6 @@ public class Team {
     }
 
     public void removePiece(Piece piece){
-
     }
 
     public void addPiece(Piece piece){

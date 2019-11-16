@@ -8,12 +8,34 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-//    // init() is good for connecting with EventHandler, unused at the moment
-//    @Override
-//    public void init() throws Exception {
-//        super.init();
-//        System.out.println("init()");
-//    }
+    /*
+        TODO
+        MENU
+        Menu -> Isaac
+
+        PIECES
+        If the user clicks on nothing, and tries to move it
+        Can't move only the black queen?
+        isMoveValid()
+        isMoveValid() special : Pawn when first start can move 2 blocks. Pawn when reach the end can transform. King <-> Rock
+
+        PLAYER
+        playTurn()
+        player white
+        player black
+
+        GAME
+        checkKills()
+        isGameOver()
+
+        ADDITIONAL
+        another small menu next to ChessBoard, surrender(), countDownTime()
+        possibleMove()
+        player dumb random machine
+
+     */
+
+
 
     @Override
     public void start(Stage primaryStage) throws Exception{

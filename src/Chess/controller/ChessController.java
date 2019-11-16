@@ -22,13 +22,14 @@ public class ChessController implements Initializable {
 	private Block block = new Block();
 	private Piece piece = new Piece();
 
-
+    // load the chessboard
     public void setupBoard(){
         for(int row = 0 ; row < 8; row++) {
             for (int col = 0; col < 8; col++) {
                 blocks[col][row] = new Block();
                 blocks[col][row].setPrefHeight(100);
                 blocks[col][row].setPrefWidth(100);
+
                 gridPane.add(blocks[col][row], col, row, 1, 1);
 
                 if (row % 2 == 0 && col % 2 ==1){
@@ -44,6 +45,7 @@ public class ChessController implements Initializable {
         chessBoard = new Board(blocks);
     }
 
+    // load event for each Block
     private void addGridEvent() {
         gridPane.getChildren().forEach(item -> {
             item.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -90,6 +92,7 @@ public class ChessController implements Initializable {
         });
     }
 
+    // init() will always get called first
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setupBoard();
