@@ -14,10 +14,10 @@ public class Main extends Application {
         Menu -> Isaac
 
         PIECES
-        If the user clicks on nothing, and tries to move it
         Can't move only the black queen?
         isMoveValid()
         isMoveValid() special : Pawn when first start can move 2 blocks. Pawn when reach the end can transform. King <-> Rock
+        -> https://github.com/Stevoisiak/JavaFX-Online-Chess/blob/master/MoveList.java
 
         PLAYER
         playTurn()
@@ -35,12 +35,11 @@ public class Main extends Application {
 
      */
 
-
-
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/Chess/view/Chess.fxml"));
-        primaryStage.setScene(new Scene(root));
+        Scene scene = new Scene(root, 1000, 800);
+        primaryStage.setScene(scene);
         primaryStage.setTitle("Chess");
         primaryStage.show();
     }

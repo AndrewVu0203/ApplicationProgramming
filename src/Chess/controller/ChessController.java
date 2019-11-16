@@ -32,12 +32,15 @@ public class ChessController implements Initializable {
 
                 gridPane.add(blocks[col][row], col, row, 1, 1);
 
+                blocks[col][row].setStyle("-fx-background-color: FFFFFF;");
+
                 if (row % 2 == 0 && col % 2 ==1){
                     blocks[col][row].setStyle("-fx-background-color: AAA;");
                 }
                 if (row % 2 == 1 && col % 2 ==0){
                     blocks[col][row].setStyle("-fx-background-color: AAA;");
                 }
+
             }
         }
 
@@ -46,18 +49,14 @@ public class ChessController implements Initializable {
     }
 
     // load event for each Block
+    // source : current location of chess piece
+    // destination : location that we want to move chess piece to
     private void addGridEvent() {
         gridPane.getChildren().forEach(item -> {
             item.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    Node src = (Node) event.getSource();
-                    Integer col = GridPane.getColumnIndex(src);
-                    Integer row = GridPane.getRowIndex(src);
-                    System.out.println("current col is " + col + " , current row is " + row);
-
                     // Moving of pieces
-                    // TODO: Fix error: If the user clicks on nothing, and tries to move it
                     // TODO: Can't move only the black queen?
                     Integer originCol = -1;
                     Integer originRow = -1;
@@ -76,8 +75,12 @@ public class ChessController implements Initializable {
                         place = (Node) event.getSource();
                         originCol = GridPane.getColumnIndex(source);
                         originRow = GridPane.getRowIndex(source);
+                        System.out.print("from col " + originCol + " , row " + originRow);
+
                         destCol = GridPane.getColumnIndex(place);
                         destRow = GridPane.getRowIndex(place);
+                        System.out.println(" -> col " + destCol + " , row " + destRow);
+
                         if(blocks[destCol][destRow].getPiece() != null
                                 && blocks[destCol][destRow].getPiece().getTeam().equalsIgnoreCase(piece.getTeam())) {
                             block = (Block) event.getSource();
