@@ -66,7 +66,10 @@ public class ChessController implements Initializable {
                     if(source == null) {
                         block = (Block) event.getSource();
                         piece = block.getPiece();
-                        source = (Node) event.getSource();
+                        if(piece == null){}
+                        else{
+                            source = (Node) event.getSource();
+                        }
                     }
                     else {
 
