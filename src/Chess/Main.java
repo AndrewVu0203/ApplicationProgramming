@@ -14,7 +14,6 @@ public class Main extends Application {
         Menu -> Isaac
 
         PIECES
-        Can't move only the black queen?
         isMoveValid()
         isMoveValid() special : Pawn when first start can move 2 blocks. Pawn when reach the end can transform. 
                                 King can switch place with Rock. can't jump over another chess piece

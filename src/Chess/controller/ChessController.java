@@ -57,7 +57,6 @@ public class ChessController implements Initializable {
                 @Override
                 public void handle(MouseEvent event) {
                     // Moving of pieces
-                    // TODO: Can't move only the black queen?
                     Integer originCol = -1;
                     Integer originRow = -1;
                     Integer destCol = -1;
