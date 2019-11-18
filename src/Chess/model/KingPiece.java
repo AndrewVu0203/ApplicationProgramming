@@ -2,8 +2,8 @@ package Chess.model;
 
 public class KingPiece  extends Piece {
 	
-    public KingPiece(String team) {
-        super(PieceType.King, team);
+    public KingPiece(String team, int x, int y) {
+        super(PieceType.King, team, x, y);
     }
     
     /* Determine wether the player is making a valid move */
@@ -20,6 +20,8 @@ public class KingPiece  extends Piece {
     		}
     	}
 
+    	// thisX = cur pos
+		// x = move to pos
     	if((thisX - x == 1 && thisY - y == 1) || (thisX - x == 1 && thisY - y == 0) || (thisX - x == 1 &&thisY - y == -1)
     			|| (thisX - x == 0 && thisY - y == 1) || (thisX - x == 0 &&thisY - y == 0)|| (thisX - x == 0 && thisY - y == -1)
     			|| (thisX - x == -1 && thisY - y == 1) || (thisX - x == -1 &&thisY - y == 0)|| (thisX - x == -1 && thisY - y == -1)) {

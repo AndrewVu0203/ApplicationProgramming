@@ -4,8 +4,8 @@ public class KnightPiece  extends Piece {
 
     /* Knight object constructor, sets 
         all variables for knight*/
-	public KnightPiece(String team) {
-        super(PieceType.Knight, team);
+	public KnightPiece(String team, int x, int y) {
+        super(PieceType.Knight, team, x, y);
     }
 
     /* This method will validate whether or not a move is legal */

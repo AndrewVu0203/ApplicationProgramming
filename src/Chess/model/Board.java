@@ -1,55 +1,39 @@
 package Chess.model;
 
 public class Board{
-    Team whiteTeam;
-    Team blackTeam;
 
     public Board(Block block[][]){
-        block[4][0].setPiece(new Piece(Piece.PieceType.King, "Black"));
-        block[3][0].setPiece(new Piece(Piece.PieceType.Queen, "Black"));
+        block[4][0].setPiece(new KingPiece("Black", 4, 0));
+        block[3][0].setPiece(new QueenPiece("Black", 3, 0));
 
-        block[5][0].setPiece(new Piece(Piece.PieceType.Bishop, "Black"));
-        block[2][0].setPiece(new Piece(Piece.PieceType.Bishop, "Black"));
+        block[5][0].setPiece(new BishopPiece("Black", 5, 0));
+        block[2][0].setPiece(new BishopPiece("Black", 2, 0));
 
-        block[6][0].setPiece(new Piece(Piece.PieceType.Knight, "Black"));
-        block[1][0].setPiece(new Piece(Piece.PieceType.Knight, "Black"));
+        block[6][0].setPiece(new KnightPiece("Black", 6, 0));
+        block[1][0].setPiece(new KnightPiece("Black", 1, 0));
 
-        block[7][0].setPiece(new Piece(Piece.PieceType.Rook, "Black"));
-        block[0][0].setPiece(new Piece(Piece.PieceType.Rook, "Black"));
-
-        for(int i = 0 ; i < 8 ; i++){
-            block[i][1].setPiece(new Piece(Piece.PieceType.Pawn, "Black"));
-        }
-
-        block[3][7].setPiece(new Piece(Piece.PieceType.King, "White"));
-
-        block[4][7].setPiece(new Piece(Piece.PieceType.Queen, "White"));
-
-        block[5][7].setPiece(new Piece(Piece.PieceType.Bishop, "White"));
-        block[2][7].setPiece(new Piece(Piece.PieceType.Bishop, "White"));
-
-        block[6][7].setPiece(new Piece(Piece.PieceType.Knight, "White"));
-        block[1][7].setPiece(new Piece(Piece.PieceType.Knight, "White"));
-
-        block[7][7].setPiece(new Piece(Piece.PieceType.Rook, "White"));
-        block[0][7].setPiece(new Piece(Piece.PieceType.Rook, "White"));
+        block[7][0].setPiece(new RookPiece("Black", 7, 0));
+        block[0][0].setPiece(new RookPiece("Black", 0, 0));
 
         for(int i = 0 ; i < 8 ; i++){
-            block[i][6].setPiece(new Piece(Piece.PieceType.Pawn, "White"));
+            block[i][1].setPiece(new PawnPiece("Black", i, 0));
         }
-    }
 
-    public void resetBoard(){
-        this.whiteTeam = new Team("White");
-        this.blackTeam = new Team("Black");
-    }
+        block[3][7].setPiece(new KingPiece("White", 4, 7));
+        block[4][7].setPiece(new QueenPiece("White", 3, 7));
 
-    public Team getBlackTeam(){
-        return blackTeam;
-    }
+        block[5][7].setPiece(new BishopPiece("White", 5, 7));
+        block[2][7].setPiece(new BishopPiece("White", 2, 7));
 
-    public Team getWhiteTeam(){
-        return whiteTeam;
+        block[6][7].setPiece(new KnightPiece("White", 6, 7));
+        block[1][7].setPiece(new KnightPiece("White", 1, 7));
+
+        block[7][7].setPiece(new RookPiece("White", 7, 7));
+        block[0][7].setPiece(new RookPiece("White", 0, 7));
+
+        for(int i = 0 ; i < 8 ; i++){
+            block[i][6].setPiece(new PawnPiece("White", i, 6));
+        }
     }
 
 }

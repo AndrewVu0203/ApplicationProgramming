@@ -11,10 +11,12 @@ public class Piece {
 
     public Piece(){};
 
-    public Piece(PieceType piece, String team){
+    public Piece(PieceType piece, String team, int x, int y){
         this.pieceType = piece;
         this.team = team;
         this.imagePath = "Chess/images/pieces/" + team.toLowerCase() + "_" + piece.toString().toLowerCase() + ".png";
+        this.x = x;
+        this.y = y;
     }
 
     public String abbreviate(String str){
@@ -27,7 +29,7 @@ public class Piece {
     // This gets overwritten in each piece
     public boolean isMoveValid(int x, int y, Block[][] blocks){
         // Needs to return true
-        return true;
+        return false;
     }
 
     public String getImagePath() {
