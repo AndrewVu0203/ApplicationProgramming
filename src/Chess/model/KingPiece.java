@@ -23,7 +23,7 @@ public class KingPiece  extends Piece {
     	// thisX = cur pos
 		// x = move to pos
     	if((thisX - x == 1 && thisY - y == 1) || (thisX - x == 1 && thisY - y == 0) || (thisX - x == 1 &&thisY - y == -1)
-    			|| (thisX - x == 0 && thisY - y == 1) || (thisX - x == 0 &&thisY - y == 0)|| (thisX - x == 0 && thisY - y == -1)
+    			|| (thisX - x == 0 && thisY - y == 1) || (thisX - x == 0 && thisY - y == -1)
     			|| (thisX - x == -1 && thisY - y == 1) || (thisX - x == -1 &&thisY - y == 0)|| (thisX - x == -1 && thisY - y == -1)) {
     		this.setX(x);
     		this.setY(y);
