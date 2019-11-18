@@ -34,13 +34,17 @@ public class Main extends Application {
         player dumb random machine
 
      */
+    
+    public static Stage stage;
+    public Parent root;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/Chess/view/Chess.fxml"));
-        Scene scene = new Scene(root, 1000, 800);
+        stage = primaryStage;
+        root = FXMLLoader.load(getClass().getResource("/Chess/view/Menu.fxml"));
+        Scene scene = new Scene(root, 600, 430);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Chess");
+        primaryStage.setTitle("Chess Menu");
         primaryStage.show();
     }
 
