@@ -1,5 +1,7 @@
 package Chess.model;
 
+import java.lang.Math;
+
 public class KnightPiece  extends Piece {
 
     /* Knight object constructor, sets 
@@ -14,20 +16,7 @@ public class KnightPiece  extends Piece {
         int thisX = this.getX();
         int thisY = this.getY();
 
-        /* If there is currently a */
-        if(blocks[x][y].getPiece() != null) {
-            if(blocks[x][y].getPiece().getTeam().equalsIgnoreCase(super.getTeam())) {
-                System.out.println("False");
-                return false;
-            }
-        }
-
-        // thisX = cur pos
-        // x = move to pos
-        if((thisX - x == -2 && thisY - y == 1) || (thisX - x == 2 && thisY - y == 1) || (thisX - x == -1 &&thisY - y == 2)
-                || (thisX - x == 1 && thisY - y == 2)|| (thisX - x == 2 && thisY - y == -1)
-                || (thisX - x == -2 && thisY - y == -2) || (thisX - x == 1 && thisY - y == -2)
-                || (thisX - x == -1 && thisY - y == -2)) {
+        if((Math.abs(thisX - x) == 2 || Math.abs(thisX - x) ==1) && (Math.abs(thisY - y) == 1 || Math.abs(thisY - y) == 2)){
             this.setX(x);
             this.setY(y);
             return true;
