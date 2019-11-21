@@ -3,6 +3,7 @@ package Chess.controller;
 import Chess.model.Block;
 import Chess.model.Board;
 import Chess.model.Piece;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -95,6 +96,10 @@ public class ChessController implements Initializable {
                 }
             });
         });
+    }
+
+    public void quit(ActionEvent e) {
+        System.exit(1);
     }
 
     // init() will always get called first
