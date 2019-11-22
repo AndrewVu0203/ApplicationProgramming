@@ -9,17 +9,17 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     /*
-        TODO
-        MENU
-        Menu -> Isaac
+        MENU -> Isaac
 
-        PIECES
+        PIECES -> Andrew, Shu
         isMoveValid()
         isMoveValid() special : Pawn when first start can move 2 blocks. Pawn when reach the end can transform. 
-                                King can switch place with Rock. can't jump over another chess piece
+                                King can switch place with Rock. can't jump over another chess piece.
+                                (hints) Bishop : move diagonal, x=y, 2=2, 3=3 return true
+                                (hints) Can't jump over another chess piecePiece collision(): return false
         -> https://github.com/Stevoisiak/JavaFX-Online-Chess/blob/master/MoveList.java
 
-        PLAYER
+        PLAYER -> Josh + Isaac
         playTurn()
         player white
         player black
@@ -28,11 +28,21 @@ public class Main extends Application {
         checkKills()
         isGameOver()
 
+        SIDE MENU
+        GO BACK TO MENU -> Issac
+        History logs -> Andrew
+        resign() ->
+
+        VIDEO
+        (works on Sunday next week, everyone)
+
+        PRESENTATION
+        Isaac, Josh
+
         ADDITIONAL
-        another small menu next to ChessBoard, surrender(), countDownTime()
         possibleMove()
         player dumb random machine
-
+        en passant
      */
     
     public static Stage stage;
