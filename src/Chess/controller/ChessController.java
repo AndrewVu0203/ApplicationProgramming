@@ -22,6 +22,8 @@ public class ChessController implements Initializable {
     private Node place = null;
 	private Block block = new Block();
 	private Piece piece = new Piece();
+	
+	boolean turn = true;
 
     // load the chessboard
     public void setupBoard(){
@@ -66,7 +68,7 @@ public class ChessController implements Initializable {
                         block = (Block) event.getSource();
                         piece = block.getPiece();
                         if(piece == null){}
-                        else{
+                        else if(isTurn(piece)){
                             source = (Node) event.getSource();
                         }
                     }
@@ -107,5 +109,19 @@ public class ChessController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         setupBoard();
         addGridEvent();
+    }
+
+    public boolean isTurn(Piece piece) {
+    	
+    	if(piece.getTeam().equalsIgnoreCase("white") && this.turn) {
+    		this.turn = false;
+    		return true;
+    	}
+    	else if(piece.getTeam().equalsIgnoreCase("black") && !this.turn) {
+    		this.turn = true;
+    		return true;
+    	}
+    	
+    	return false;
     }
 }
