@@ -5,38 +5,27 @@ public class PawnPiece  extends Piece {
 	    super(PieceType.Pawn, team, x, y);
     }
 
+    private boolean hasMoved = false;
+
     @Override
     public boolean isMoveValid(int x, int y, Block[][] blocks){
         int thisX = this.getX();
         int thisY = this.getY();
 
-        if (PawnPiece.this.getTeam().equals("b")){
-            if(thisX - x == 0 && thisY - y == -1){
-                this.setX(x);
-                this.setY(y);
-                return true;
-            }
-            if(!hasMoved && (thisX - x == 0 && thisY - y == -2)) {
-                this.setX(x);
-                this.setY(y);
-                return true;
-            }
-        }
-
-        if (PawnPiece.this.getTeam().equals("w")){
-            if(thisX - x == 0 && thisY - y == 1){
+            if(thisX - x == 0 && Math.abs(thisY - y) == 1){
                 this.setX(x);
                 this.setY(y);
                 this.hasMoved = true;
                 return true;
             }
-            if(!hasMoved && (thisX - x == 0 && thisY - y == 2)) {
+            if(!hasMoved && (thisX - x == 0 && Math.abs(thisY - y) == 2 )) {
                 this.setX(x);
                 this.setY(y);
                 this.hasMoved = true;
                 return true;
             }
-        }
+        
+        
         return false;
     }
 }

@@ -9,7 +9,6 @@ public class Piece {
     private String path;
     public enum PieceType {Bishop, King, Queen, Pawn, Knight, Rook}
 
-    protected boolean hasMoved;
 
     public Piece(){};
 
@@ -19,7 +18,6 @@ public class Piece {
         this.imagePath = "Chess/images/pieces/" + team.toLowerCase() + "_" + piece.toString().toLowerCase() + ".png";
         this.x = x;
         this.y = y;
-        this.hasMoved = false;
     }
 
     public String abbreviate(String str){
