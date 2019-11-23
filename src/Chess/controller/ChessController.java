@@ -3,11 +3,14 @@ package Chess.controller;
 import Chess.model.Block;
 import Chess.model.Board;
 import Chess.model.Piece;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
@@ -16,12 +19,14 @@ import java.util.ResourceBundle;
 
 public class ChessController implements Initializable {
     @FXML GridPane gridPane;
+    @FXML ListView listView;
     private Board chessBoard;
     private Block[][] blocks = new Block[8][8];
     private Node source = null;
     private Node place = null;
 	private Block block = new Block();
 	private Piece piece = new Piece();
+    ObservableList<String> observableList = FXCollections.observableArrayList();
 	
 	boolean turn = true;
 
@@ -49,6 +54,10 @@ public class ChessController implements Initializable {
 
         // Setup Pieces
         chessBoard = new Board(blocks);
+    }
+
+    public void setUpHistoryLog(){
+        listView.setItems(observableList);
     }
 
     // load event for each Block
@@ -83,6 +92,12 @@ public class ChessController implements Initializable {
                         destRow = GridPane.getRowIndex(place);
                         System.out.println(" -> col " + destCol + " , row " + destRow);
 
+                        if(destCol != null && destRow != null){
+                            observableList.addAll(block.getPiece().getPieceType().toString()
+                                    + " from " + originCol + "-" + originRow
+                                    + " to " + destCol + "-" + destRow);
+                        }
+
                         if(blocks[destCol][destRow].getPiece() != null
                                 && blocks[destCol][destRow].getPiece().getTeam().equalsIgnoreCase(piece.getTeam())) {
                             block = (Block) event.getSource();
@@ -109,6 +124,7 @@ public class ChessController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         setupBoard();
         addGridEvent();
+        setUpHistoryLog();
     }
 
     public boolean isTurn(Piece piece) {

@@ -62,4 +62,8 @@ public class Piece {
     public void setY(int y) {
         this.y = y;
     }
+
+    public PieceType getPieceType() {
+        return pieceType;
+    }
 }
