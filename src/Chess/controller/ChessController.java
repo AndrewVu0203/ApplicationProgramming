@@ -1,6 +1,5 @@
 package Chess.controller;
 
-import Chess.Main;
 import Chess.model.Block;
 import Chess.model.Board;
 import Chess.model.Piece;
@@ -9,16 +8,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -91,17 +86,9 @@ public class ChessController implements Initializable {
                         place = (Node) event.getSource();
                         originCol = GridPane.getColumnIndex(source);
                         originRow = GridPane.getRowIndex(source);
-                        System.out.print("from col " + originCol + " , row " + originRow);
 
                         destCol = GridPane.getColumnIndex(place);
                         destRow = GridPane.getRowIndex(place);
-                        System.out.println(" -> col " + destCol + " , row " + destRow);
-
-                        if(destCol != null && destRow != null){
-                            observableList.addAll(block.getPiece().getPieceType().toString()
-                                    + " from " + originCol + "-" + originRow
-                                    + " to " + destCol + "-" + destRow);
-                        }
 
                         if(blocks[destCol][destRow].getPiece() != null
                                 && blocks[destCol][destRow].getPiece().getTeam().equalsIgnoreCase(piece.getTeam())) {
@@ -110,6 +97,9 @@ public class ChessController implements Initializable {
                             source = (Node) event.getSource();
                         }
                         else if(piece.isMoveValid(destCol, destRow, blocks)){
+                            observableList.addAll(block.getPiece().getPieceType().toString()
+                                    + " from " + originCol + "-" + originRow
+                                    + " to " + destCol + "-" + destRow);
                             blocks[originCol][originRow].removeBlock();
                             blocks[destCol][destRow].setPiece(piece);
                             source = null;
@@ -122,13 +112,6 @@ public class ChessController implements Initializable {
 
     public void quit(ActionEvent e) {
         System.exit(1);
-    }
-
-    public void backToMenu(ActionEvent e) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Chess/view/Menu.fxml"));
-        Parent root = loader.load();
-        Main.stage.setScene(new Scene(root));
-        Main.stage.show();
     }
 
     // init() will always get called first
