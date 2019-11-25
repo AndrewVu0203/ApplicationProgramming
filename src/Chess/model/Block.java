@@ -9,16 +9,24 @@ public class Block extends Button {
     private int y;
     private Piece piece;
 
-    public boolean enPassant = false;
+    public boolean enPassantW = false;
+    public boolean enPassantB = false;
     public Block(){
     }  
-     
-    public void setEnPasant(boolean bool) {
-    	this.enPassant = bool;
+    public void setEnPasantW(boolean bool) {
+    	this.enPassantW = bool;
     }
 
-    public boolean getEnPasant() {
-    	return this.enPassant;
+    public boolean getEnPasantW() {
+    	return this.enPassantW;
+    } 
+    
+    public void setEnPasantB(boolean bool) {
+    	this.enPassantB = bool;
+    }
+
+    public boolean getEnPasantB() {
+    	return this.enPassantB;
     }
     /* Method which resets the state of a block */
     public void removeBlock() {
