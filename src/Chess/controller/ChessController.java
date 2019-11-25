@@ -86,17 +86,9 @@ public class ChessController implements Initializable {
                         place = (Node) event.getSource();
                         originCol = GridPane.getColumnIndex(source);
                         originRow = GridPane.getRowIndex(source);
-                        System.out.print("from col " + originCol + " , row " + originRow);
 
                         destCol = GridPane.getColumnIndex(place);
                         destRow = GridPane.getRowIndex(place);
-                        System.out.println(" -> col " + destCol + " , row " + destRow);
-
-                        if(destCol != null && destRow != null){
-                            observableList.addAll(block.getPiece().getPieceType().toString()
-                                    + " from " + originCol + "-" + originRow
-                                    + " to " + destCol + "-" + destRow);
-                        }
 
                         if(blocks[destCol][destRow].getPiece() != null
                                 && blocks[destCol][destRow].getPiece().getTeam().equalsIgnoreCase(piece.getTeam())) {
@@ -105,6 +97,9 @@ public class ChessController implements Initializable {
                             source = (Node) event.getSource();
                         }
                         else if(piece.isMoveValid(destCol, destRow, blocks)){
+                            observableList.addAll(block.getPiece().getPieceType().toString()
+                                    + " from " + originCol + "-" + originRow
+                                    + " to " + destCol + "-" + destRow);
                             blocks[originCol][originRow].removeBlock();
                             blocks[destCol][destRow].setPiece(piece);
                             source = null;

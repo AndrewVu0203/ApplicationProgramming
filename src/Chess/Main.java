@@ -30,8 +30,10 @@ public class Main extends Application {
 
         SIDE MENU
         GO BACK TO MENU -> Issac
-        History logs -> Andrew
         resign() ->
+
+        HISTORY LOG
+        ABC123
 
         VIDEO
         (works on Sunday next week, everyone)
