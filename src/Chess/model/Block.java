@@ -9,9 +9,17 @@ public class Block extends Button {
     private int y;
     private Piece piece;
 
+    public boolean enPassant = false;
     public Block(){
     }  
      
+    public void setEnPasant(boolean bool) {
+    	this.enPassant = bool;
+    }
+
+    public boolean getEnPasant() {
+    	return this.enPassant;
+    }
     /* Method which resets the state of a block */
     public void removeBlock() {
     	this.setGraphic(null);

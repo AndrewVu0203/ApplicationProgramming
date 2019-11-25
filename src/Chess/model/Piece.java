@@ -9,10 +9,16 @@ public class Piece {
     private String path;
     public enum PieceType {Bishop, King, Queen, Pawn, Knight, Rook}
 
+    public boolean enPassant = false;
     protected boolean hasMoved;
 
     public Piece(){};
-
+    public void setEnPassant(boolean bool) {
+    	this.enPassant = bool;
+    }
+    public boolean getEnPassant() {
+    	return this.enPassant;
+    }
     public Piece(PieceType piece, String team, int x, int y){
         this.pieceType = piece;
         this.team = team;
