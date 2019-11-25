@@ -1,4 +1,7 @@
+out/*
+/out/
 out/
+/out
 .DS_Store
 # intellij
 *.iml

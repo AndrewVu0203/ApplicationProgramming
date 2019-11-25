@@ -15,8 +15,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SplitPane;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -25,6 +27,9 @@ import java.util.ResourceBundle;
 public class ChessController implements Initializable {
     @FXML GridPane gridPane;
     @FXML ListView listView;
+    @FXML AnchorPane chessPane;
+    @FXML SplitPane mainSplitPane;
+    @FXML SplitPane sideSplitPane;
     private Board chessBoard;
     private Block[][] blocks = new Block[8][8];
     private Node source = null;
@@ -38,6 +43,12 @@ public class ChessController implements Initializable {
 
     // load the chessboard
     public void setupBoard(){
+        BackgroundImage bg = new BackgroundImage(new Image("Chess/images/others/board_bg.jpg"),
+                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        chessPane.setBackground(new Background(bg));
+        gridPane.setStyle("-fx-background-color: transparent;");
+        mainSplitPane.setStyle("-fx-background-color: transparent;");
+        sideSplitPane.setStyle("-fx-background-color: transparent;");
         for(int row = 0 ; row < 8; row++) {
             for (int col = 0; col < 8; col++) {
                 blocks[col][row] = new Block();
@@ -49,10 +60,10 @@ public class ChessController implements Initializable {
                 blocks[col][row].setStyle("-fx-background-color: FFFFFF;");
 
                 if (row % 2 == 0 && col % 2 ==1){
-                    blocks[col][row].setStyle("-fx-background-color: AAA;");
+                    blocks[col][row].setStyle("-fx-background-color: transparent;");
                 }
                 if (row % 2 == 1 && col % 2 ==0){
-                    blocks[col][row].setStyle("-fx-background-color: AAA;");
+                    blocks[col][row].setStyle("-fx-background-color: transparent;");
                 }
 
             }
