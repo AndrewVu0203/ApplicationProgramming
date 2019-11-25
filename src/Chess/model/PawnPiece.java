@@ -10,7 +10,8 @@ public class PawnPiece  extends Piece {
         int thisX = this.getX();
         int thisY = this.getY();
 
-        if (PawnPiece.this.getTeam().equals("b")){
+        String color = this.getTeam();
+        if (color.equalsIgnoreCase("black")){
             if(thisX - x == 0 && thisY - y == -1){
                 this.setX(x);
                 this.setY(y);
@@ -23,7 +24,7 @@ public class PawnPiece  extends Piece {
             }
         }
 
-        if (PawnPiece.this.getTeam().equals("w")){
+        if (color.equalsIgnoreCase("white")){
             if(thisX - x == 0 && thisY - y == 1){
                 this.setX(x);
                 this.setY(y);
