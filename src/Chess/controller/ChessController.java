@@ -135,4 +135,12 @@ public class ChessController implements Initializable {
     	
     	return false;
     }
+
+    public boolean isCollision(int x, int y, Piece piece) {
+    	
+    	int xDist = Math.abs(piece.getX() - x);
+    	int yDist = Math.abs(piece.getY() - y);
+    	
+    	return false;
+    }
 }
