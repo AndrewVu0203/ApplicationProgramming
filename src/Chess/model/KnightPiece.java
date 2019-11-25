@@ -4,6 +4,7 @@ import java.lang.Math;
 
 public class KnightPiece  extends Piece {
 
+	
     /* Knight object constructor, sets 
         all variables for knight*/
 	public KnightPiece(String team, int x, int y) {
@@ -16,7 +17,7 @@ public class KnightPiece  extends Piece {
         int thisX = this.getX();
         int thisY = this.getY();
 
-        if((Math.abs(thisX - x) == 2 || Math.abs(thisX - x) ==1) && (Math.abs(thisY - y) == 1 || Math.abs(thisY - y) == 2)){
+        if((Math.abs(thisX - x) == 1 && Math.abs(thisY - y) == 2) || (Math.abs(thisY - y) == 1 && Math.abs(thisX - x) == 2)){
             this.setX(x);
             this.setY(y);
             return true;
