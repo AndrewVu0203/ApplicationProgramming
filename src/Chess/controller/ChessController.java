@@ -32,6 +32,7 @@ public class ChessController implements Initializable {
 	private Block block = new Block();
 	private Piece piece = new Piece();
     ObservableList<String> observableList = FXCollections.observableArrayList();
+
 	
 	boolean turn = true;
 
