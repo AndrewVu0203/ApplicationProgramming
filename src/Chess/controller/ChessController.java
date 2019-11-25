@@ -1,5 +1,6 @@
 package Chess.controller;
 
+import Chess.Main;
 import Chess.model.Block;
 import Chess.model.Board;
 import Chess.model.Piece;
@@ -8,12 +9,16 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -117,6 +122,13 @@ public class ChessController implements Initializable {
 
     public void quit(ActionEvent e) {
         System.exit(1);
+    }
+
+    public void backToMenu(ActionEvent e) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Chess/view/Menu.fxml"));
+        Parent root = loader.load();
+        Main.stage.setScene(new Scene(root));
+        Main.stage.show();
     }
 
     // init() will always get called first
