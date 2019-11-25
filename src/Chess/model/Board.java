@@ -16,7 +16,7 @@ public class Board{
         block[0][0].setPiece(new RookPiece("Black", 0, 0));
 
         for(int i = 0 ; i < 8 ; i++){
-            block[i][1].setPiece(new PawnPiece("Black", i, 0));
+            block[i][1].setPiece(new PawnPiece("Black", i, 1));
         }
 
         block[3][7].setPiece(new KingPiece("White", 4, 7));
