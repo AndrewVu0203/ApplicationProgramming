@@ -1,1 +1,7 @@
-out\
+/out
+.DS_Store
+# intellij
+*.iml
+*.ipr
+*.iws
+.idea/
