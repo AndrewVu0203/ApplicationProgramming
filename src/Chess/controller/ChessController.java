@@ -102,7 +102,9 @@ public class ChessController implements Initializable {
                             source = (Node) event.getSource();
                         }
                         else if(piece.isMoveValid(destCol, destRow, blocks)){
-                            observableList.addAll(block.getPiece().getPieceType().toString()
+                            observableList.addAll(
+                                    block.getPiece().getTeam().toString()
+                                    + " " + block.getPiece().getPieceType().toString()
                                     + " from " + originCol + "-" + originRow
                                     + " to " + destCol + "-" + destRow);
                             blocks[originCol][originRow].removeBlock();

@@ -15,14 +15,8 @@ public class Main extends Application {
         isMoveValid()
         isMoveValid() special : Pawn when first start can move 2 blocks. Pawn when reach the end can transform. 
                                 King can switch place with Rock. can't jump over another chess piece.
-                                (hints) Bishop : move diagonal, x=y, 2=2, 3=3 return true
                                 (hints) Can't jump over another chess piecePiece collision(): return false
         -> https://github.com/Stevoisiak/JavaFX-Online-Chess/blob/master/MoveList.java
-
-        PLAYER -> Josh + Isaac
-        playTurn()
-        player white
-        player black
 
         GAME
         checkKills()
