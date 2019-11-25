@@ -106,8 +106,8 @@ public class ChessController implements Initializable {
                             observableList.addAll(
                                     block.getPiece().getTeam().toString()
                                     + " " + block.getPiece().getPieceType().toString()
-                                    + " from " + originCol + "-" + originRow
-                                    + " to " + destCol + "-" + destRow);
+                                    + " from " + getAlphabetLocation(originCol) + originRow
+                                    + " to " + getAlphabetLocation(destCol) + destRow);
                             blocks[originCol][originRow].removeBlock();
                             blocks[destCol][destRow].setPiece(piece);
                             source = null;
@@ -116,6 +116,20 @@ public class ChessController implements Initializable {
                 }
             });
         });
+    }
+
+    public String getAlphabetLocation(Integer x){
+        switch(x){
+            case 0: return "A";
+            case 1: return "B";
+            case 2: return "C";
+            case 3: return "D";
+            case 4: return "E";
+            case 5: return "F";
+            case 6: return "G";
+            case 7: return "H";
+        }
+        return null;
     }
 
     public void quit(ActionEvent e) {
