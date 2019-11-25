@@ -8,7 +8,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -40,6 +43,32 @@ public class MenuController implements Initializable {
         Parent root = loader.load();
         Main.stage.setScene(new Scene(root));
         Main.stage.show();
+    }
+
+    public void aboutButton(ActionEvent e) {
+        if(Desktop.isDesktopSupported())
+        {
+            try {
+                Desktop.getDesktop().browse(new URI("https://github.com/TheGreatAndrew/ApplicationProgramming"));
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            } catch (URISyntaxException e1) {
+                e1.printStackTrace();
+            }
+        }
+    }
+
+    public void rulesButton(ActionEvent e) {
+        if(Desktop.isDesktopSupported())
+        {
+            try {
+                Desktop.getDesktop().browse(new URI("https://en.wikipedia.org/wiki/Rules_of_chess"));
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            } catch (URISyntaxException e1) {
+                e1.printStackTrace();
+            }
+        }
     }
 
     public void quit(ActionEvent e) {
