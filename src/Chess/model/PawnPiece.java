@@ -85,7 +85,7 @@ public class PawnPiece  extends Piece {
     	return false;
     }
     
-     public boolean canAttack(Block[][] blocks, int x, int y) {
+  public boolean canAttack(Block[][] blocks, int x, int y) {
     	Piece piece;
     	
     	if(Math.abs(this.getX()-x) == 1 && Math.abs(this.getY() - y) == 1) {
@@ -103,8 +103,8 @@ public class PawnPiece  extends Piece {
     			if(this.getTeam().equalsIgnoreCase("black")) {
         			this.setX(x);
                     this.setY(y);
-                    blocks[x][y].setEnPasantW(false);
                     blocks[x][y-1].removeBlock();
+                    blocks[x][y].setEnPasantW(false);
         			return true;
     			}
     		}
@@ -114,15 +114,13 @@ public class PawnPiece  extends Piece {
     			if(this.getTeam().equalsIgnoreCase("white")){
         			this.setX(x);
                     this.setY(y);
-	                blocks[x][y].setEnPasantB(false);
 	                blocks[x][y+1].removeBlock();
+	                blocks[x][y].setEnPasantB(false);
         			return true;
-    			}    			
+    			}
+    			
     		}
     	}
-    	
-    	return false;
-    }
     	
     	return false;
     }
