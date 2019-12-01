@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
@@ -30,6 +31,7 @@ public class ChessController implements Initializable {
     @FXML AnchorPane chessPane;
     @FXML SplitPane mainSplitPane;
     @FXML SplitPane sideSplitPane;
+    @FXML Label labelCurrentPlayer;
     private Board chessBoard;
     private Block[][] blocks = new Block[8][8];
     private Node source = null;
@@ -119,6 +121,13 @@ public class ChessController implements Initializable {
                                     + " " + block.getPiece().getPieceType().toString()
                                     + " from " + getAlphabetLocation(originCol) + originRow
                                     + " to " + getAlphabetLocation(destCol) + destRow);
+
+                            if(block.getPiece().getTeam().toString().equalsIgnoreCase("white")){
+                                labelCurrentPlayer.setText("Current Player : Black");
+                            }else{
+                                labelCurrentPlayer.setText("Current Player : White");
+                            }
+
                             blocks[originCol][originRow].removeBlock();
                             blocks[destCol][destRow].setPiece(piece);
                             source = null;
