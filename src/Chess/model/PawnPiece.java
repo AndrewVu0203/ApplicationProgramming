@@ -34,6 +34,7 @@ public class PawnPiece  extends Piece {
                 this.setX(x);
                 this.setY(y);
                 blocks[x][y-1].setEnPasantW(true);
+                this.hasMoved = true;
                 return true;
             }
         }
