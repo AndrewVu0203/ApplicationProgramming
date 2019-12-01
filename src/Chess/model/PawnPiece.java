@@ -26,14 +26,14 @@ public class PawnPiece  extends Piece {
                 this.setY(y);
                 if(this.enPassant == true) {
                 	this.setEnPassant(false);
-                    blocks[x][y-2].setEnPasant(true);
+                    blocks[x][y-2].setEnPasantW(true);
                 }
                 return true;
             }
             if(!hasMoved && (thisX - x == 0 && thisY - y == -2)) {
                 this.setX(x);
                 this.setY(y);
-                blocks[x][y-1].setEnPasant(true);
+                blocks[x][y-1].setEnPasantW(true);
                 return true;
             }
         }
@@ -45,14 +45,14 @@ public class PawnPiece  extends Piece {
                 this.hasMoved = true;
                 if(this.enPassant == true) {
                 	this.setEnPassant(false);
-                    blocks[x][y+2].setEnPasant(true);
+                    blocks[x][y+2].setEnPasantB(true);
                 }
                 return true;
             }
             if(!hasMoved && (thisX - x == 0 && thisY - y == 2)) {
                 this.setX(x);
                 this.setY(y);
-                blocks[x][y+1].setEnPasant(true);
+                blocks[x][y+1].setEnPasantB(true);
                 this.hasMoved = true;
                 return true;
             }
@@ -65,23 +65,23 @@ public class PawnPiece  extends Piece {
     	Piece piece;
     	Block block;
 
-	        if (color.equalsIgnoreCase("black")) {
-	        	for(int i = 1; i <= dist; i++) {
-		    		piece = blocks[this.getX()][this.getY() + i].getPiece();  
-		    		if(piece != null) {
-		    			return true;
-		    		}
-	        	}
-	        }
-	        if (color.equalsIgnoreCase("white")) {
-        		for(int i = 1; i <= dist; i++) {
-		    		block = blocks[this.getX()][this.getY() - i]; 
-		    		piece = block.getPiece();
-		    		if(piece != null) {
-		    			return true;
-		    		}
-        		}
-	        }
+    	if (color.equalsIgnoreCase("black")) {
+    	    for(int i = 1; i <= dist; i++) {
+    	        piece = blocks[this.getX()][this.getY() + i].getPiece();
+    	        if(piece != null) {
+    	            return true;
+    	        }
+    	    }
+    	}
+    	if (color.equalsIgnoreCase("white")) {
+    	    for(int i = 1; i <= dist; i++) {
+    	        block = blocks[this.getX()][this.getY() - i];
+    	        piece = block.getPiece();
+    	        if(piece != null) {
+    	            return true;
+    	        }
+    	    }
+    	}
     	return false;
     }
     

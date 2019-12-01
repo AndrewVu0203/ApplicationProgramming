@@ -14,14 +14,100 @@ public class BishopPiece extends Piece {
         int thisX = this.getX();
         int thisY = this.getY();
 
+        if (isCollision(x, y, blocks)) {
+            return false;
+        }
+
         if (Math.abs(thisX - x) == Math.abs(thisY - y) && Math.abs(thisX - x) < 8) {
-            //cant jump
-//            if(){
-//                return false;
-//            }
             this.setX(x);
             this.setY(y);
             return true;
+        }
+        return false;
+    }
+
+    public boolean isCollision(int x, int y, Block[][] blocks) {
+        int dist = Math.abs(this.getY() - y);
+        int i;
+        int thisX = this.getX();
+        int thisY = this.getY();
+        Piece piece;
+
+        if(this.getTeam().equalsIgnoreCase("white")) {
+            if(thisX < x && thisY < y){
+                for(i = 1; i < dist; i++) {
+                    piece = blocks[this.getX() + i][this.getY() + i].getPiece();
+                    if (piece != null) {
+                        return true;
+                    }
+                }
+                this.setX(x);
+                this.setY(y);
+            }else if(thisX > x && thisY > y){
+                for(i = 1; i < dist; i++) {
+                    piece = blocks[this.getX() - i][this.getY() - i].getPiece();
+                    if (piece != null) {
+                        return true;
+                    }
+                }
+                this.setX(x);
+                this.setY(y);
+            }else if (thisX < x && thisY >y){
+                for(i = 1; i < dist; i++) {
+                    piece = blocks[this.getX() + i][this.getY() - i].getPiece();
+                    if (piece != null) {
+                        return true;
+                    }
+                }
+                this.setX(x);
+                this.setY(y);
+            }else if (thisX > x && thisY < y ){
+                for(i = 1; i < dist; i++) {
+                    piece = blocks[this.getX() - i][this.getY() + i].getPiece();
+                    if (piece != null) {
+                        return true;
+                    }
+                }
+                this.setX(x);
+                this.setY(y);
+            }
+        }
+        else if(this.getTeam().equalsIgnoreCase("black")) {
+            if(thisX < x && thisY < y){
+                for(i = 1; i < dist; i++) {
+                    piece = blocks[this.getX() + i][this.getY() + i].getPiece();
+                    if (piece != null) {
+                        return true;
+                    }
+                }
+                this.setX(x);
+                this.setY(y);
+            }else if(thisX > x && thisY > y){
+                for(i = 1; i < dist; i++) {
+                    piece = blocks[this.getX() - i][this.getY() - i].getPiece();
+                    if (piece != null) {
+                        return true;
+                    }
+                }
+                this.setX(x);
+                this.setY(y);
+            }else if (thisX < x && thisY >y){
+                for(i = 1; i < dist; i++) {
+                    piece = blocks[this.getX() + i][this.getY() - i].getPiece();
+                    if (piece != null) {
+                        return true;
+                    }
+                }
+            }else if (thisX > x && thisY < y ){
+                for(i = 1; i < dist; i++) {
+                    piece = blocks[this.getX() - i][this.getY() + i].getPiece();
+                    if (piece != null) {
+                        return true;
+                    }
+                }
+                this.setX(x);
+                this.setY(y);
+            }
         }
         return false;
     }

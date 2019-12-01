@@ -7,22 +7,17 @@ public class RookPiece extends Piece {
         super(PieceType.Rook, team, x, y);
     }
 
-	
-	
     /* This method will validate whether or not a move is legal */
     @Override
     public boolean isMoveValid(int x, int y, Block[][] blocks){
         int thisX = this.getX();
         int thisY = this.getY();
-        
-        
+
         if(isCollision(x, y, blocks)) {
     		return false;
     	}
-        
-        
+
         if((Math.abs(thisX - x) < 8 && thisY - y == 0) || (thisX - x == 0 && Math.abs(thisX - y) < 8)) {
-            
             this.setX(x);
             this.setY(y);
             return true;
@@ -37,43 +32,36 @@ public class RookPiece extends Piece {
     	if(this.getTeam().equalsIgnoreCase("white")) {
     		
     		if(this.getX() == x) {
-    			
+
     			if(this.getY() > y) {
         			i = this.getY() - 1;
-    			}
-    			
-    			else {
+    			} else {
         			i = this.getY() + 1;
     			}
-    			
     			System.out.printf("%d %d\n", i, this.getX());
 	    		
     			for(; i != y;) {
+
 	    			piece = blocks[x][i].getPiece();
+
 	    			if(piece != null) {
 	    				return true;
 	    			}
 	    			
 	    			if(this.getY() > y) {
 	    				i--;
-	    			}
-	    			
-	    			else {
+	    			}else {
 	    				i++;
 	    			}
 	    		}
-	    		
     			this.setX(x);
 	    		this.setY(y);
 	    	}
-	    	
     		else if(this.getY() == y) {
     			
     			if(this.getX() > x) {
         			i = this.getX() - 1;
-    			}
-    			
-    			else {
+    			}else {
         			i = this.getX() + 1;
     			}
     			
@@ -85,15 +73,10 @@ public class RookPiece extends Piece {
 	    			
 	    			if(this.getX() > x) {
 	    				i--;
-	    			}
-	    			
-	    			else {
+	    			}else {
 	    				i++;
 	    			}
 	    		}
-	    		
-    			
-	    		
     			this.setX(x);
 	    		this.setY(y);
 	    	}
@@ -103,9 +86,7 @@ public class RookPiece extends Piece {
 	    		
 	    		if(this.getY() > y) {
         			i = this.getY() - 1;
-    			}
-    			
-    			else {
+    			}else {
         			i = this.getY() + 1;
     			}
     			
@@ -117,13 +98,10 @@ public class RookPiece extends Piece {
 	    			
 	    			if(this.getY() > y) {
 	    				i--;
-	    			}
-	    			
-	    			else {
+	    			}else {
 	    				i++;
 	    			}
 	    		}
-	    		
     			this.setX(x);
 	    		this.setY(y);
 	    	}
@@ -131,9 +109,7 @@ public class RookPiece extends Piece {
 	    		
 	    		if(this.getX() > y) {
         			i = this.getX() - 1;
-    			}
-    			
-    			else {
+    			}else {
         			i = this.getX() + 1;
     			}
     			
@@ -146,9 +122,7 @@ public class RookPiece extends Piece {
 	    			
 	    			if(this.getX() > x) {
 	    				i--;
-	    			}
-	    			
-	    			else {
+	    			} else {
 	    				i++;
 	    			}
 	    		}
@@ -157,9 +131,6 @@ public class RookPiece extends Piece {
 	    		this.setY(y);
 	    	}
     	}
-    	
-    	
     	return false;
     }
-    
 }

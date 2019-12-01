@@ -8,7 +8,7 @@ public class Piece {
     private String imagePath;
     private String path;
     public enum PieceType {Bishop, King, Queen, Pawn, Knight, Rook}
-
+    protected  boolean enPassant;
     protected boolean hasMoved;
 
     public Piece(){};
