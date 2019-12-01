@@ -4,6 +4,7 @@ import Chess.Main;
 import Chess.model.Block;
 import Chess.model.Board;
 import Chess.model.Piece;
+import Chess.model.QueenPiece;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -131,6 +132,17 @@ public class ChessController implements Initializable {
                             blocks[originCol][originRow].removeBlock();
                             blocks[destCol][destRow].setPiece(piece);
                             source = null;
+
+                            if(destRow == 7 && piece.getTeam().equalsIgnoreCase("black") && piece.getPieceType().equals(Piece.PieceType.Pawn)){
+                                blocks[destCol][destRow].removeBlock();
+                                blocks[destCol][destRow].setPiece(new QueenPiece("Black", destCol, destRow));
+                            }
+
+                            if(destRow == 0 && piece.getTeam().equalsIgnoreCase("white") && piece.getPieceType().equals(Piece.PieceType.Pawn)){
+                                blocks[destCol][destRow].removeBlock();
+                                blocks[destCol][destRow].setPiece(new QueenPiece("White", destCol, destRow));
+                            }
+
                         }
                     }
                 }
