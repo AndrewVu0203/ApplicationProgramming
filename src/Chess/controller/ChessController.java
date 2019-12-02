@@ -138,38 +138,11 @@ public class ChessController implements Initializable {
 
 
                             if(destRow == 7 && piece.getTeam().equalsIgnoreCase("black") && piece.getPieceType().equals(Piece.PieceType.Pawn)){
-                                blocks[destCol][destRow].removeBlock();
-                                blocks[destCol][destRow].setPiece(new QueenPiece("Black", destCol, destRow));
+                                BlackPawnPromotion();
                             }
 
                             if(destRow == 0 && piece.getTeam().equalsIgnoreCase("white") && piece.getPieceType().equals(Piece.PieceType.Pawn)){
-                                Stage secondStage = new Stage();
-                                Parent root2 = null;
-                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Chess/view/PawnPromoWhite.fxml"));
-                                try {
-                                    root2 = loader.load();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                                Scene scene = new Scene(root2, 500, 400);
-                                secondStage.setScene(scene);
-                                secondStage.setTitle("Coming Soon!");
-                                secondStage.showAndWait();
-
-                                WPawnPromo wPawnPromo= loader.getController();
-                                blocks[destCol][destRow].removeBlock();
-
-                                switch(wPawnPromo.getWhichPiece()){
-                                    case "queen" : blocks[destCol][destRow].setPiece(new QueenPiece("White", destCol, destRow));
-                                    break;
-                                    case "bishop" : blocks[destCol][destRow].setPiece(new BishopPiece("White", destCol, destRow));
-                                        break;
-                                    case "knight" : blocks[destCol][destRow].setPiece(new KnightPiece("White", destCol, destRow));
-                                        break;
-                                    case "rook" : blocks[destCol][destRow].setPiece(new RookPiece("White", destCol, destRow));
-                                        break;
-                                }
-
+                                WhitePawnPromotion();
                             }
 
                         }
@@ -202,6 +175,77 @@ public class ChessController implements Initializable {
         Parent root = loader.load();
         Main.stage.setScene(new Scene(root));
         Main.stage.show();
+    }
+
+    public void BlackPawnPromotion() {
+
+        Integer destCol = GridPane.getColumnIndex(place);
+        Integer destRow = GridPane.getRowIndex(place);
+
+        Stage secondStage = new Stage();
+        Parent root2 = null;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Chess/view/PawnPromoBlack.fxml"));
+        try {
+            root2 = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scene scene = new Scene(root2, 500, 220);
+        secondStage.setScene(scene);
+        secondStage.setTitle("Black Pawn Promotion");
+
+        BPawnPromo bPawnPromo= loader.getController();
+        bPawnPromo.setSecondStage(secondStage);
+        secondStage.showAndWait();
+
+        blocks[destCol][destRow].removeBlock();
+        switch(bPawnPromo.getWhichPiece()) {
+            case "queen":
+                blocks[destCol][destRow].setPiece(new QueenPiece("Black", destCol, destRow));
+                break;
+            case "bishop":
+                blocks[destCol][destRow].setPiece(new BishopPiece("Black", destCol, destRow));
+                break;
+            case "knight":
+                blocks[destCol][destRow].setPiece(new KnightPiece("Black", destCol, destRow));
+                break;
+            case "rook":
+                blocks[destCol][destRow].setPiece(new RookPiece("Black", destCol, destRow));
+                break;
+        }
+    }
+
+    public void WhitePawnPromotion() {
+        Integer destCol = GridPane.getColumnIndex(place);
+        Integer destRow = GridPane.getRowIndex(place);
+
+        Stage secondStage = new Stage();
+        Parent root2 = null;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Chess/view/PawnPromoWhite.fxml"));
+        try {
+            root2 = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scene scene = new Scene(root2, 500, 220);
+        secondStage.setScene(scene);
+        secondStage.setTitle("White Pawn Promotion");
+
+        WPawnPromo wPawnPromo= loader.getController();
+        wPawnPromo.setSecondStage(secondStage);
+        secondStage.showAndWait();
+
+        blocks[destCol][destRow].removeBlock();
+        switch(wPawnPromo.getWhichPiece()){
+            case "queen" : blocks[destCol][destRow].setPiece(new QueenPiece("White", destCol, destRow));
+                break;
+            case "bishop" : blocks[destCol][destRow].setPiece(new BishopPiece("White", destCol, destRow));
+                break;
+            case "knight" : blocks[destCol][destRow].setPiece(new KnightPiece("White", destCol, destRow));
+                break;
+            case "rook" : blocks[destCol][destRow].setPiece(new RookPiece("White", destCol, destRow));
+                break;
+        }
     }
 
     // init() will always get called first

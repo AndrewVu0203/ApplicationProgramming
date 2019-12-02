@@ -1,33 +1,57 @@
 package Chess.controller;
 
-import Chess.Main;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.awt.*;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
-
 public class BPawnPromo implements Initializable {
 
-    private boolean rookClick() throws IOException {
-        return false;
-    }
-    public void onePlayer(ActionEvent e) throws IOException {
+    String whichPiece;
+    Stage secondStage;
+
+    public Stage getSecondStage() {
+        return secondStage;
     }
 
-    public void twoPlayer(ActionEvent e) throws IOException {
+    public void setSecondStage(Stage secondStage) {
+        this.secondStage = secondStage;
+    }
+
+    public String getWhichPiece() {
+        return whichPiece;
+    }
+
+    public void setWhichPiece(String whichPiece) {
+        this.whichPiece = whichPiece;
+    }
+
+
+    @FXML
+    public void rookClick(){
+        setWhichPiece("rook");
+        getSecondStage().close();
+    }
+
+    @FXML
+    public void knightClick(){
+        setWhichPiece("knight");
+        getSecondStage().close();
+    }
+
+    @FXML
+    public void bishopClick(){
+        setWhichPiece("bishop");
+        getSecondStage().close();
+    }
+
+    @FXML
+    public void queenClick(){
+        setWhichPiece("queen");
+        getSecondStage().close();
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) { }
+    public void initialize(URL location, ResourceBundle resources) {  }
 }
