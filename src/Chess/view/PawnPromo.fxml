@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Chess.controller.MenuController">
+   <children>
+      <Label layoutX="58.0" layoutY="53.0" prefHeight="49.0" prefWidth="384.0" text="What would you like to promote your pawn to?">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="RookButton" layoutX="92.0" layoutY="130.0" mnemonicParsing="false" onAction="#RookPush" prefHeight="40.0" prefWidth="100.0" text="Rook" />
+      <Button fx:id="KnightButton" layoutX="300.0" layoutY="130.0" mnemonicParsing="false" onAction="#KnightPush" prefHeight="40.0" prefWidth="100.0" text="Knight" />
+      <Button fx:id="QueenButton" layoutX="300.0" layoutY="204.0" mnemonicParsing="false" onAction="#QueenPush" prefHeight="40.0" prefWidth="100.0" text="Queen" />
+      <Button fx:id="BishopButton" layoutX="92.0" layoutY="204.0" mnemonicParsing="false" onAction="#BishopPush" prefHeight="40.0" prefWidth="100.0" text="Bishop" />
+   </children>
+</Pane>
