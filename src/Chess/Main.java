@@ -8,39 +8,6 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    /*
-        MENU -> Isaac
-
-        PIECES -> Andrew, Shu
-        isMoveValid()
-        isMoveValid() special : Pawn when first start can move 2 blocks. Pawn when reach the end can transform. 
-                                King can switch place with Rock. can't jump over another chess piece.
-                                (hints) Can't jump over another chess piecePiece collision(): return false
-        -> https://github.com/Stevoisiak/JavaFX-Online-Chess/blob/master/MoveList.java
-
-        GAME
-        checkKills()
-        isGameOver()
-
-        SIDE MENU
-        GO BACK TO MENU -> Issac
-        resign() ->
-
-        HISTORY LOG
-        ABC123
-
-        VIDEO
-        (works on Sunday next week, everyone)
-
-        PRESENTATION
-        Isaac, Josh
-
-        ADDITIONAL
-        possibleMove()
-        player dumb random machine
-        en passant
-     */
-    
     public static Stage stage;
     public Parent root;
 

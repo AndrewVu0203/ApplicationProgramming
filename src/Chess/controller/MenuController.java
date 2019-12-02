@@ -4,8 +4,10 @@ import Chess.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.awt.*;
@@ -23,7 +25,7 @@ public class MenuController implements Initializable {
         Stage secondStage = new Stage();
         Parent root2;
         root2 = FXMLLoader.load(getClass().getResource("/Chess/view/ComingSoon.fxml"));
-        Scene scene = new Scene(root2, 300, 200);
+        Scene scene = new Scene(root2, 400, 200);
         secondStage.setScene(scene);
         secondStage.setTitle("Coming Soon!");
         secondStage.show();
@@ -34,6 +36,9 @@ public class MenuController implements Initializable {
         Parent root = loader.load();
         Main.stage.setScene(new Scene(root));
         Main.stage.show();
+        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        Main.stage.setX((primScreenBounds.getWidth() - Main.stage.getWidth()) / 2);
+        Main.stage.setY((primScreenBounds.getHeight() - Main.stage.getHeight()) / 2);
     }
 
     public void aboutButton(ActionEvent e) {

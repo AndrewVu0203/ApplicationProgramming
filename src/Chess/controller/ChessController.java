@@ -133,6 +133,8 @@ public class ChessController implements Initializable {
                             blocks[destCol][destRow].setPiece(piece);
                             source = null;
 
+
+
                             if(destRow == 7 && piece.getTeam().equalsIgnoreCase("black") && piece.getPieceType().equals(Piece.PieceType.Pawn)){
                                 blocks[destCol][destRow].removeBlock();
                                 blocks[destCol][destRow].setPiece(new QueenPiece("Black", destCol, destRow));
