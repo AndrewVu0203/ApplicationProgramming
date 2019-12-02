@@ -50,8 +50,7 @@ public class PawnPiece  extends Piece {
                 }
             	this.setX(x);
                 this.setY(y);
-                this.hasMoved = true;
-                
+                this.hasMoved = true;                
                 return true;
             }
             if(!hasMoved && (thisX - x == 0 && thisY - y == 2)) {
@@ -165,7 +164,6 @@ public class PawnPiece  extends Piece {
         		}
         	}
         }
-    	
     	return false;
     }
 }

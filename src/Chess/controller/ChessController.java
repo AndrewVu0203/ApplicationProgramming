@@ -117,12 +117,17 @@ public class ChessController implements Initializable {
                             source = (Node) event.getSource();
                         }
                         else if(piece.isMoveValid(destCol, destRow, blocks)){
-                            observableList.addAll(
-                                    block.getPiece().getTeam().toString()
-                                    + " " + block.getPiece().getPieceType().toString()
-                                    + " from " + getAlphabetLocation(originCol) + originRow
-                                    + " to " + getAlphabetLocation(destCol) + destRow);
-
+                            
+                           if(block.getPiece() != null) {
+	                        	observableList.addAll(
+	                                    block.getPiece().getTeam().toString()
+	                                    + " " + block.getPiece().getPieceType().toString()
+	                                    + " from " + getAlphabetLocation(originCol) + originRow
+	                                    + " to " + getAlphabetLocation(destCol) + destRow);
+                        	}
+                        	else {
+                        		observableList.addAll(piece.getTeam().toString() + " Castled");
+                        	}
                             if(block.getPiece().getTeam().toString().equalsIgnoreCase("white")){
                                 labelCurrentPlayer.setText("Current Player : Black");
                             }else{
