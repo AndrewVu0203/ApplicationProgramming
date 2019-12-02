@@ -28,14 +28,7 @@ public class MenuController implements Initializable {
         secondStage.setTitle("Coming Soon!");
         secondStage.show();
 
-        long mTime = System.currentTimeMillis();
-        long end = mTime + 3000; // 5 seconds
 
-        while (mTime < end)
-        {
-            mTime = System.currentTimeMillis();
-        }
-        secondStage.close();
     }
 
     public void twoPlayer(ActionEvent e) throws IOException {
