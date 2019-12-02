@@ -92,7 +92,7 @@ public class PawnPiece  extends Piece {
     
     public boolean canAttack(Block[][] blocks, int x, int y) {
     	Piece piece;
-    	
+
     	if(this.getTeam().equalsIgnoreCase("white")) {
     		if(Math.abs(this.getX()-x) == 1 && this.getY() - y == 1) {
 

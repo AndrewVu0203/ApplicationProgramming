@@ -5,31 +5,35 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Chess.controller.MenuController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Chess.controller.BPawnPromo">
    <children>
       <Label layoutX="58.0" layoutY="53.0" prefHeight="49.0" prefWidth="384.0" text="What would you like to promote your pawn to?">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <ImageView fitHeight="70.0" fitWidth="68.0" layoutX="58.0" layoutY="135.0" onMouseClicked="#rookClick" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="70.0" fitWidth="68.0" layoutX="58.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/pieces/black_rook.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="68.0" fitWidth="68.0" layoutX="163.0" layoutY="135.0" onMouseClicked="#knightClick" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="68.0" fitWidth="68.0" layoutX="163.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/pieces/black_knight.png" />
          </image></ImageView>
-      <ImageView fitHeight="68.0" fitWidth="68.0" layoutX="269.0" layoutY="135.0" onMouseClicked="#bishopClick" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="68.0" fitWidth="68.0" layoutX="269.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/pieces/black_bishop.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="68.0" fitWidth="68.0" layoutX="374.0" layoutY="135.0" onMouseClicked="#queenClick" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="68.0" fitWidth="68.0" layoutX="374.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/pieces/black_queen.png" />
          </image>
       </ImageView>
+      <Button fx:id="rookButton" layoutX="58.0" layoutY="135.0" mnemonicParsing="false" onAction="#rookClick" prefHeight="68.0" prefWidth="68.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="knightButton" layoutX="163.0" layoutY="135.0" mnemonicParsing="false" onAction="#knightClick" prefHeight="68.0" prefWidth="68.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="bishopButton" layoutX="269.0" layoutY="135.0" mnemonicParsing="false" onAction="#bishopClick" prefHeight="68.0" prefWidth="68.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="queenButton" layoutX="374.0" layoutY="135.0" mnemonicParsing="false" onAction="#queenClick" prefHeight="68.0" prefWidth="68.0" style="-fx-background-color: transparent;" />
    </children>
 </Pane>

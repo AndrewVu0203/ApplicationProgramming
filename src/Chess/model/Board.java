@@ -19,8 +19,8 @@ public class Board{
             block[i][1].setPiece(new PawnPiece("Black", i, 1));
         }
 
-        block[3][7].setPiece(new KingPiece("White", 3, 7));
-        block[4][7].setPiece(new QueenPiece("White", 4, 7));
+        block[4][7].setPiece(new KingPiece("White", 3, 7));
+        block[3][7].setPiece(new QueenPiece("White", 4, 7));
 
         block[5][7].setPiece(new BishopPiece("White", 5, 7));
         block[2][7].setPiece(new BishopPiece("White", 2, 7));
