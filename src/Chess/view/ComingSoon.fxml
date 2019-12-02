@@ -3,9 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="313.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button fx:id="okButton" layoutX="111.0" layoutY="84.0" mnemonicParsing="false" onAction="#okClick" prefHeight="32.0" prefWidth="78.0" text="OK" />
+      <Label layoutX="7.0" layoutY="60.0" prefHeight="40.0" prefWidth="299.0" text="Due to budget cuts, we couldn't develop single player." />
    </children>
 </Pane>

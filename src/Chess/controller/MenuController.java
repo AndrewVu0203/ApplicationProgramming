@@ -27,15 +27,6 @@ public class MenuController implements Initializable {
         secondStage.setScene(scene);
         secondStage.setTitle("Coming Soon!");
         secondStage.show();
-
-        public void okClick(ActionEvent e) throws IOException {
-            stage = primaryStage;
-            root = FXMLLoader.load(getClass().getResource("/Chess/view/Menu.fxml"));
-            Scene scene = new Scene(root, 600, 430);
-            primaryStage.setScene(scene);
-            primaryStage.setTitle("Chess Menu");
-            primaryStage.show();
-        }
     }
 
     public void twoPlayer(ActionEvent e) throws IOException {
