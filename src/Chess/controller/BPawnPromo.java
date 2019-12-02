@@ -20,14 +20,13 @@ import java.util.ResourceBundle;
 public class BPawnPromo implements Initializable {
 
     private boolean rookClick() throws IOException {
-
+        return false;
     }
     public void onePlayer(ActionEvent e) throws IOException {
     }
 
     public void twoPlayer(ActionEvent e) throws IOException {
     }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) { }

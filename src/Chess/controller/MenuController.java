@@ -16,8 +16,6 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
-
 public class MenuController implements Initializable {
 
     public void onePlayer(ActionEvent e) throws IOException {
@@ -35,6 +33,7 @@ public class MenuController implements Initializable {
         Parent root = loader.load();
         Main.stage.setScene(new Scene(root));
         Main.stage.show();
+
         Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
         Main.stage.setX((primScreenBounds.getWidth() - Main.stage.getWidth()) / 2);
         Main.stage.setY((primScreenBounds.getHeight() - Main.stage.getHeight()) / 2);

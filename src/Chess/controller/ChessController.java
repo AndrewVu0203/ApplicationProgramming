@@ -1,10 +1,7 @@
 package Chess.controller;
 
 import Chess.Main;
-import Chess.model.Block;
-import Chess.model.Board;
-import Chess.model.Piece;
-import Chess.model.QueenPiece;
+import Chess.model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,6 +18,7 @@ import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -139,15 +137,39 @@ public class ChessController implements Initializable {
                             source = null;
 
 
-
                             if(destRow == 7 && piece.getTeam().equalsIgnoreCase("black") && piece.getPieceType().equals(Piece.PieceType.Pawn)){
                                 blocks[destCol][destRow].removeBlock();
                                 blocks[destCol][destRow].setPiece(new QueenPiece("Black", destCol, destRow));
                             }
 
                             if(destRow == 0 && piece.getTeam().equalsIgnoreCase("white") && piece.getPieceType().equals(Piece.PieceType.Pawn)){
+                                Stage secondStage = new Stage();
+                                Parent root2 = null;
+                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Chess/view/PawnPromoWhite.fxml"));
+                                try {
+                                    root2 = loader.load();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                Scene scene = new Scene(root2, 500, 400);
+                                secondStage.setScene(scene);
+                                secondStage.setTitle("Coming Soon!");
+                                secondStage.showAndWait();
+
+                                WPawnPromo wPawnPromo= loader.getController();
                                 blocks[destCol][destRow].removeBlock();
-                                blocks[destCol][destRow].setPiece(new QueenPiece("White", destCol, destRow));
+
+                                switch(wPawnPromo.getWhichPiece()){
+                                    case "queen" : blocks[destCol][destRow].setPiece(new QueenPiece("White", destCol, destRow));
+                                    break;
+                                    case "bishop" : blocks[destCol][destRow].setPiece(new BishopPiece("White", destCol, destRow));
+                                        break;
+                                    case "knight" : blocks[destCol][destRow].setPiece(new KnightPiece("White", destCol, destRow));
+                                        break;
+                                    case "rook" : blocks[destCol][destRow].setPiece(new RookPiece("White", destCol, destRow));
+                                        break;
+                                }
+
                             }
 
                         }
