@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Chess.controller.MenuController">
+   <children>
+      <Label layoutX="58.0" layoutY="53.0" prefHeight="49.0" prefWidth="384.0" text="What would you like to promote your pawn to?">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="70.0" fitWidth="68.0" layoutX="58.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/pieces/white_rook.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="68.0" layoutX="163.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/pieces/white_knight.png" />
+         </image></ImageView>
+      <ImageView fitHeight="68.0" fitWidth="68.0" layoutX="269.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/pieces/white_bishop.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="68.0" layoutX="374.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/pieces/white_queen.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
