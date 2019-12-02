@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 
 public class BPawnPromo implements Initializable {
 
-    private boolean LoginUser() throws IOException {
+    private boolean rookClick() throws IOException {
 
     }
     public void onePlayer(ActionEvent e) throws IOException {
