@@ -20,6 +20,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -144,19 +145,39 @@ public class ChessController implements Initializable {
                             blocks[destCol][destRow].setPiece(piece);
                             source = null;
 
+                            if(whiteKingPiece == null){
+                                Stage secondStage = new Stage();
+                                Parent root2 = null;
+                                try {
+                                    root2 = FXMLLoader.load(getClass().getResource("/Chess/view/WinningTeam.fxml"));
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                Scene scene = new Scene(root2, 450, 300);
+                                secondStage.setScene(scene);
+                                secondStage.setTitle("Black Player Wins");
+                                secondStage.show();
+                            }
+                            if(blackKingPiece == null){
+                                Stage secondStage = new Stage();
+                                Parent root2 = null;
+                                try {
+                                    root2 = FXMLLoader.load(getClass().getResource("/Chess/view/WinningTeam.fxml"));
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                Scene scene = new Scene(root2, 450, 300);
+                                secondStage.setScene(scene);
+                                secondStage.setTitle("White Player Wins");
+                                secondStage.show();
+                            }
+
                             if(destRow == 7 && piece.getTeam().equalsIgnoreCase("black") && piece.getPieceType().equals(Piece.PieceType.Pawn)){
                                 BlackPawnPromotion();
                             }
 
                             if(destRow == 0 && piece.getTeam().equalsIgnoreCase("white") && piece.getPieceType().equals(Piece.PieceType.Pawn)){
                                 WhitePawnPromotion();
-                            }
-
-                            if(whiteKingPiece == null){
-                                System.out.println("White King dies");
-                            }
-                            if(blackKingPiece == null){
-                                System.out.println("Black King dies");
                             }
 
                         }
@@ -192,7 +213,6 @@ public class ChessController implements Initializable {
     }
 
     public void BlackPawnPromotion() {
-
         Integer destCol = GridPane.getColumnIndex(place);
         Integer destRow = GridPane.getRowIndex(place);
 
