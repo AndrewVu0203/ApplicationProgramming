@@ -20,6 +20,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -38,8 +39,8 @@ public class ChessController implements Initializable {
 	private Block block = new Block();
 	private Piece piece = new Piece();
     ObservableList<String> observableList = FXCollections.observableArrayList();
-
-	
+    private Piece whiteKingPiece;
+    private Piece blackKingPiece;
 	boolean turn = true;
 
     // load the chessboard
@@ -133,9 +134,43 @@ public class ChessController implements Initializable {
                             }
 
                             blocks[originCol][originRow].removeBlock();
+                            if(blocks[destCol][destRow].getPiece() != null){
+                                if(blocks[destCol][destRow].getPiece().equals(whiteKingPiece)){
+                                    whiteKingPiece = null;
+                                }
+                                if(blocks[destCol][destRow].getPiece().equals(blackKingPiece)){
+                                    blackKingPiece = null;
+                                }
+                            }
                             blocks[destCol][destRow].setPiece(piece);
                             source = null;
 
+                            if(whiteKingPiece == null){
+                                Stage secondStage = new Stage();
+                                Parent root2 = null;
+                                try {
+                                    root2 = FXMLLoader.load(getClass().getResource("/Chess/view/WinningTeam.fxml"));
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                Scene scene = new Scene(root2, 450, 300);
+                                secondStage.setScene(scene);
+                                secondStage.setTitle("Black Player Wins");
+                                secondStage.show();
+                            }
+                            if(blackKingPiece == null){
+                                Stage secondStage = new Stage();
+                                Parent root2 = null;
+                                try {
+                                    root2 = FXMLLoader.load(getClass().getResource("/Chess/view/WinningTeam.fxml"));
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                Scene scene = new Scene(root2, 450, 300);
+                                secondStage.setScene(scene);
+                                secondStage.setTitle("White Player Wins");
+                                secondStage.show();
+                            }
 
                             if(destRow == 7 && piece.getTeam().equalsIgnoreCase("black") && piece.getPieceType().equals(Piece.PieceType.Pawn)){
                                 BlackPawnPromotion();
@@ -178,7 +213,6 @@ public class ChessController implements Initializable {
     }
 
     public void BlackPawnPromotion() {
-
         Integer destCol = GridPane.getColumnIndex(place);
         Integer destRow = GridPane.getRowIndex(place);
 
@@ -254,6 +288,9 @@ public class ChessController implements Initializable {
         setupBoard();
         addGridEvent();
         setUpHistoryLog();
+        whiteKingPiece = blocks[4][7].getPiece();
+        blackKingPiece = blocks[4][0].getPiece();
+
     }
 
     public boolean isTurn(Piece piece) {

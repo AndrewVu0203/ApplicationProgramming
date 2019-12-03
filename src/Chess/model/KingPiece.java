@@ -1,5 +1,12 @@
 package Chess.model;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
 public class KingPiece  extends Piece {
 	
     public KingPiece(String team, int x, int y) {
@@ -35,8 +42,7 @@ public class KingPiece  extends Piece {
     	}
 		return false;
     }
-    
-    
+
     public boolean canCastle(int x, int y, Block block[][]) {
     	int i = 0;
     	Piece piece;
