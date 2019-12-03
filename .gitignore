@@ -2,6 +2,7 @@ out/*
 /out/
 out/
 /out
+.class
 .DS_Store
 # intellij
 *.iml

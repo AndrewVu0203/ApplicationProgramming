@@ -20,13 +20,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ChessController implements Initializable {
     @FXML GridPane gridPane;
+    @FXML Pane boardImage;
     @FXML ListView listView;
     @FXML AnchorPane chessPane;
     @FXML SplitPane mainSplitPane;
@@ -45,9 +45,12 @@ public class ChessController implements Initializable {
 
     // load the chessboard
     public void setupBoard(){
-        BackgroundImage bg = new BackgroundImage(new Image("Chess/images/others/board_bg.jpg"),
+        BackgroundImage bg = new BackgroundImage(new Image("Chess/images/others/window_bg.jpg"),
                 BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         chessPane.setBackground(new Background(bg));
+        bg = new BackgroundImage(new Image("Chess/images/others/board_bg.jpg"),
+                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        boardImage.setBackground(new Background(bg));
         gridPane.setStyle("-fx-background-color: transparent;");
         mainSplitPane.setStyle("-fx-background-color: transparent;");
         sideSplitPane.setStyle("-fx-background-color: transparent;");
@@ -60,6 +63,7 @@ public class ChessController implements Initializable {
                 gridPane.add(blocks[col][row], col, row, 1, 1);
 
                 blocks[col][row].setStyle("-fx-background-color: FFFFFF;");
+                blocks[col][row].setStyle("-fx-background-color: transparent;");
 
                 if (row % 2 == 0 && col % 2 ==1){
                     blocks[col][row].setStyle("-fx-background-color: transparent;");
