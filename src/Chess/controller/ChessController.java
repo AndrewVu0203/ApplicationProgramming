@@ -126,7 +126,7 @@ public class ChessController implements Initializable {
                         	else {
                         		observableList.addAll(piece.getTeam().toString() + " Castled");
                         	}
-                            if(block.getPiece().getTeam().toString().equalsIgnoreCase("white")){
+                            if(piece.getTeam().equalsIgnoreCase("white")){
                                 labelCurrentPlayer.setText("Current Player : Black");
                             }else{
                                 labelCurrentPlayer.setText("Current Player : White");
