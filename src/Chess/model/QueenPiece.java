@@ -48,7 +48,7 @@ public class QueenPiece  extends Piece {
                 } else {
                     i = thisY + 1;
                 }
-                System.out.printf("%d %d\n", i, thisX);
+                //System.out.printf("%d %d\n", i, thisX);
 
                 for(; i != y;) {
                     piece = blocks[x][i].getPiece();

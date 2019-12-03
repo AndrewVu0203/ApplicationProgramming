@@ -38,8 +38,8 @@ public class ChessController implements Initializable {
 	private Block block = new Block();
 	private Piece piece = new Piece();
     ObservableList<String> observableList = FXCollections.observableArrayList();
-
-	
+    private Piece whiteKingPiece;
+    private Piece blackKingPiece;
 	boolean turn = true;
 
     // load the chessboard
@@ -133,9 +133,16 @@ public class ChessController implements Initializable {
                             }
 
                             blocks[originCol][originRow].removeBlock();
+                            if(blocks[destCol][destRow].getPiece() != null){
+                                if(blocks[destCol][destRow].getPiece().equals(whiteKingPiece)){
+                                    whiteKingPiece = null;
+                                }
+                                if(blocks[destCol][destRow].getPiece().equals(blackKingPiece)){
+                                    blackKingPiece = null;
+                                }
+                            }
                             blocks[destCol][destRow].setPiece(piece);
                             source = null;
-
 
                             if(destRow == 7 && piece.getTeam().equalsIgnoreCase("black") && piece.getPieceType().equals(Piece.PieceType.Pawn)){
                                 BlackPawnPromotion();
@@ -143,6 +150,13 @@ public class ChessController implements Initializable {
 
                             if(destRow == 0 && piece.getTeam().equalsIgnoreCase("white") && piece.getPieceType().equals(Piece.PieceType.Pawn)){
                                 WhitePawnPromotion();
+                            }
+
+                            if(whiteKingPiece == null){
+                                System.out.println("White King dies");
+                            }
+                            if(blackKingPiece == null){
+                                System.out.println("Black King dies");
                             }
 
                         }
@@ -254,6 +268,9 @@ public class ChessController implements Initializable {
         setupBoard();
         addGridEvent();
         setUpHistoryLog();
+        whiteKingPiece = blocks[4][7].getPiece();
+        blackKingPiece = blocks[4][0].getPiece();
+
     }
 
     public boolean isTurn(Piece piece) {
