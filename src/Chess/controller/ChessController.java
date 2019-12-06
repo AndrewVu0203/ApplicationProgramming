@@ -43,7 +43,9 @@ public class ChessController implements Initializable {
     private Piece blackKingPiece;
 	boolean turn = true;
 
-    // load the chessboard
+    /**
+     * set up board game
+     */
     public void setupBoard(){
         BackgroundImage bg = new BackgroundImage(new Image("Chess/images/others/window_bg.jpg"),
                 BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
@@ -75,17 +77,19 @@ public class ChessController implements Initializable {
             }
         }
 
-        // Setup Pieces
         chessBoard = new Board(blocks);
     }
 
+    /**
+     * set up history log
+     */
     public void setUpHistoryLog(){
         listView.setItems(observableList);
     }
 
-    // load event for each Block
-    // source : current location of chess piece
-    // destination : location that we want to move chess piece to
+    /**
+     * load event for each Block instance
+     */
     private void addGridEvent() {
         gridPane.getChildren().forEach(item -> {
             item.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -105,7 +109,6 @@ public class ChessController implements Initializable {
                         }
                     }
                     else {
-
                         place = (Node) event.getSource();
                         originCol = GridPane.getColumnIndex(source);
                         originRow = GridPane.getRowIndex(source);
@@ -120,7 +123,7 @@ public class ChessController implements Initializable {
                             source = (Node) event.getSource();
                         }
                         else if(piece.isMoveValid(destCol, destRow, blocks)){
-                            
+                            // history log
                            if(block.getPiece() != null) {
 	                        	observableList.addAll(
 	                                    block.getPiece().getTeam().toString()
@@ -131,55 +134,23 @@ public class ChessController implements Initializable {
                         	else {
                         		observableList.addAll(piece.getTeam().toString() + " Castled");
                         	}
+                        	// current player
                             if(piece.getTeam().equalsIgnoreCase("white")){
                                 labelCurrentPlayer.setText("Current Player : Black");
                             }else{
                                 labelCurrentPlayer.setText("Current Player : White");
                             }
 
+                            // remove pieces
                             blocks[originCol][originRow].removeBlock();
-                            if(blocks[destCol][destRow].getPiece() != null){
-                                if(blocks[destCol][destRow].getPiece().equals(whiteKingPiece)){
-                                    whiteKingPiece = null;
-                                }
-                                if(blocks[destCol][destRow].getPiece().equals(blackKingPiece)){
-                                    blackKingPiece = null;
-                                }
-                            }
                             blocks[destCol][destRow].setPiece(piece);
                             source = null;
 
-                            if(whiteKingPiece == null){
-                                Stage secondStage = new Stage();
-                                Parent root2 = null;
-                                try {
-                                    root2 = FXMLLoader.load(getClass().getResource("/Chess/view/WinningTeam.fxml"));
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                                Scene scene = new Scene(root2, 450, 300);
-                                secondStage.setScene(scene);
-                                secondStage.setTitle("Black Player Wins");
-                                secondStage.show();
-                            }
-                            if(blackKingPiece == null){
-                                Stage secondStage = new Stage();
-                                Parent root2 = null;
-                                try {
-                                    root2 = FXMLLoader.load(getClass().getResource("/Chess/view/WinningTeam.fxml"));
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                                Scene scene = new Scene(root2, 450, 300);
-                                secondStage.setScene(scene);
-                                secondStage.setTitle("White Player Wins");
-                                secondStage.show();
-                            }
-
+                            // if a piece is black and it's a pawn
                             if(destRow == 7 && piece.getTeam().equalsIgnoreCase("black") && piece.getPieceType().equals(Piece.PieceType.Pawn)){
                                 BlackPawnPromotion();
                             }
-
+                            // if a piece is white nad it's a pawn
                             if(destRow == 0 && piece.getTeam().equalsIgnoreCase("white") && piece.getPieceType().equals(Piece.PieceType.Pawn)){
                                 WhitePawnPromotion();
                             }
@@ -190,7 +161,10 @@ public class ChessController implements Initializable {
             });
         });
     }
-
+    /**
+     * render alphabet letter in chess board
+     * @return return thatt letter
+     */
     public String getAlphabetLocation(Integer x){
         switch(x){
             case 0: return "A";
@@ -205,10 +179,16 @@ public class ChessController implements Initializable {
         return null;
     }
 
+    /**
+     * quit the application
+     */
     public void quit(ActionEvent e) {
         System.exit(1);
     }
 
+    /**
+     * go back to Menu.fxml
+     */
     public void backToMenu(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Chess/view/Menu.fxml"));
         Parent root = loader.load();
@@ -216,6 +196,9 @@ public class ChessController implements Initializable {
         Main.stage.show();
     }
 
+    /**
+     * promote black pawn to higher piece
+     */
     public void BlackPawnPromotion() {
         Integer destCol = GridPane.getColumnIndex(place);
         Integer destRow = GridPane.getRowIndex(place);
@@ -252,7 +235,9 @@ public class ChessController implements Initializable {
                 break;
         }
     }
-
+    /**
+     * promote white pawn to higher piece
+     */
     public void WhitePawnPromotion() {
         Integer destCol = GridPane.getColumnIndex(place);
         Integer destRow = GridPane.getRowIndex(place);
@@ -286,7 +271,11 @@ public class ChessController implements Initializable {
         }
     }
 
-    // init() will always get called first
+    /**
+     * init the board, event and the history log
+     * @param location the url location
+     * @param resources the needed resource
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setupBoard();
@@ -296,7 +285,11 @@ public class ChessController implements Initializable {
         blackKingPiece = blocks[4][0].getPiece();
 
     }
-
+    /**
+     * check if it's the right turn
+     * @param piece specific chess piece
+     * @return white or black turn
+     */
     public boolean isTurn(Piece piece) {
     	
     	if(piece.getTeam().equalsIgnoreCase("white") && this.turn) {
@@ -311,6 +304,13 @@ public class ChessController implements Initializable {
     	return false;
     }
 
+    /**
+     *
+     * @param x x-location
+     * @param y y-location
+     * @param piece specific piece
+     * @return will collide or not
+     */
     public boolean isCollision(int x, int y, Piece piece) {
     	
     	int xDist = Math.abs(piece.getX() - x);

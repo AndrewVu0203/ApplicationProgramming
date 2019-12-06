@@ -2,13 +2,24 @@ package Chess.model;
 
 public class BishopPiece extends Piece {
 
-    /* Bishop object constructor, sets
-        all variables for bishop*/
+    /**
+     * Bishop object constructor, sets
+     *         all variables for bishop
+     * @param team black or white team
+     * @param x x-location
+     * @param y y-location
+     */
     public BishopPiece(String team, int x, int y) {
         super(PieceType.Bishop, team, x, y);
     }
 
-    /* This method will validate whether or not a move is legal */
+    /**
+     *
+     * @param x x-location
+     * @param y y-location
+     * @param blocks chessboard
+     * @return can you move the chesspiece or not
+     */
     @Override
     public boolean isMoveValid(int x, int y, Block[][] blocks) {
         int thisX = this.getX();
@@ -26,6 +37,13 @@ public class BishopPiece extends Piece {
         return false;
     }
 
+    /**
+     *
+     * @param x x-location
+     * @param y y-location
+     * @param blocks chessboard
+     * @return does it collide with another piece or not
+     */
     public boolean isCollision(int x, int y, Block[][] blocks) {
         int dist = Math.abs(this.getY() - y);
         int i;

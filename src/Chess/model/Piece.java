@@ -29,6 +29,11 @@ public class Piece {
         this.hasMoved = false;
     }
 
+    /**
+     * abbreviate the name to only the first char
+     * @param str
+     * @return
+     */
     public String abbreviate(String str){
         if ("knight".equals(str.toLowerCase()))
             return "Kn";
@@ -36,9 +41,14 @@ public class Piece {
             return str.substring(0, 1).toUpperCase();
     }
 
-    // This gets overwritten in each piece
+    /**
+     * This gets overwritten in each piece
+     * @param x
+     * @param y
+     * @param blocks
+     * @return
+     */
     public boolean isMoveValid(int x, int y, Block[][] blocks){
-        // Needs to return true
         return false;
     }
 

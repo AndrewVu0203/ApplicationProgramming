@@ -12,8 +12,14 @@ public class KingPiece  extends Piece {
     public KingPiece(String team, int x, int y) {
         super(PieceType.King, team, x, y);
     }
-    
-    /* Determine wether the player is making a valid move */
+
+	/**
+	 * Determine whether the player is making a valid move
+	 * @param x x-location
+	 * @param y y-location
+	 * @param blocks chessboard
+	 * @return check if the move is valid and can be moved
+	 */
     @Override
     public boolean isMoveValid(int x, int y, Block blocks[][]){
 		int thisX = this.getX();
@@ -43,6 +49,13 @@ public class KingPiece  extends Piece {
 		return false;
     }
 
+	/**
+	 * special function that help king castle
+	 * @param x x-location
+	 * @param y y-location
+	 * @param block chessboard
+	 * @return check whether we can castle
+	 */
     public boolean canCastle(int x, int y, Block block[][]) {
     	int i = 0;
     	Piece piece;

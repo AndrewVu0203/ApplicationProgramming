@@ -3,13 +3,24 @@ package Chess.model;
 import java.lang.Math;
 
 public class QueenPiece  extends Piece {
-    /* Queen object constructor, sets
-        all variables for queen*/
+    /**
+     * Queen object constructor, sets
+     *         all variables for queen
+     * @param team team
+     * @param x x-location
+     * @param y y-location
+     */
 	public QueenPiece(String team, int x, int y) {
         super(PieceType.Queen, team, x, y);
     }
 
-    /* This method will validate whether or not a move is legal */
+    /**
+     * This method will validate whether or not a move is legal
+     * @param x x-location
+     * @param y y-location
+     * @param blocks
+     * @return check whether we can move
+     */
     @Override
     public boolean isMoveValid(int x, int y, Block[][] blocks){
         int thisX = this.getX();
@@ -33,6 +44,13 @@ public class QueenPiece  extends Piece {
         return false;
     }
 
+    /**
+     * check whether it is collided
+     * @param x x-location
+     * @param y y-location
+     * @param blocks chessboard
+     * @return
+     */
     public boolean isCollision(int x, int y, Block[][] blocks) {
         int dist = Math.abs(this.getY() - y);
         int i;

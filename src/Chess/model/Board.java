@@ -2,6 +2,10 @@ package Chess.model;
 
 public class Board{
 
+    /**
+     * this constructor set up the board with the init location of all chess pieces
+     * @param block chessboard
+     */
     public Board(Block block[][]){
         block[4][0].setPiece(new KingPiece("Black", 4, 0));
         block[3][0].setPiece(new QueenPiece("Black", 3, 0));

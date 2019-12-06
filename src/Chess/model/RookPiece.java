@@ -7,7 +7,13 @@ public class RookPiece extends Piece {
         super(PieceType.Rook, team, x, y);
     }
 
-    /* This method will validate whether or not a move is legal */
+	/**
+	 * This method will validate whether or not a move is legal
+	 * @param x x-location
+	 * @param y y-location
+	 * @param blocks chessboard
+	 * @return whether a move can be made
+	 */
     @Override
     public boolean isMoveValid(int x, int y, Block[][] blocks){
         int thisX = this.getX();
@@ -24,7 +30,14 @@ public class RookPiece extends Piece {
         }
         return false;
     }
-    
+
+	/**
+	 * whether a piece is collided with another piece
+	 * @param x x-location
+	 * @param y y-location
+	 * @param blocks chessboard
+	 * @return whether a piece is collided with this piece
+	 */
     public boolean isCollision(int x, int y, Block[][] blocks) {
     	int i = 0;
     	Piece piece;

@@ -11,6 +11,10 @@ public class Main extends Application {
     public static Stage stage;
     public Parent root;
 
+    /**
+     * run the application
+     * @param primaryStage stage of the application to run scene
+     */
     @Override
     public void start(Stage primaryStage) throws Exception{
         stage = primaryStage;

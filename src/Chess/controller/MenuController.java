@@ -18,6 +18,10 @@ import java.util.ResourceBundle;
 
 public class MenuController implements Initializable {
 
+    /**
+     * one player button in Menu.fxml
+     * @param e event
+     */
     public void onePlayer(ActionEvent e) throws IOException {
         Stage secondStage = new Stage();
         Parent root2;
@@ -28,6 +32,10 @@ public class MenuController implements Initializable {
         secondStage.show();
     }
 
+    /**
+     * two player button in Menu.fxml
+     * e event
+     */
     public void twoPlayer(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Chess/view/Chess.fxml"));
         Parent root = loader.load();
@@ -39,6 +47,10 @@ public class MenuController implements Initializable {
         Main.stage.setY((primScreenBounds.getHeight() - Main.stage.getHeight()) / 2);
     }
 
+    /**
+     * about button in Menu.fxml
+     * @param e event
+     */
     public void aboutButton(ActionEvent e) {
         if(Desktop.isDesktopSupported())
         {
@@ -51,7 +63,10 @@ public class MenuController implements Initializable {
             }
         }
     }
-
+    /**
+     * rule button in Menu.fxml
+     * @param e event
+     */
     public void rulesButton(ActionEvent e) {
         if(Desktop.isDesktopSupported())
         {
@@ -64,13 +79,18 @@ public class MenuController implements Initializable {
             }
         }
     }
-
+    /**
+     * quit in Menu.fxml
+     */
     public void quit(ActionEvent e) {
         System.exit(1);
     }
 
+    /**
+     * @param location url location
+     * @param resources resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
 }

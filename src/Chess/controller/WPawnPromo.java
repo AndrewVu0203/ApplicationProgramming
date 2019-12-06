@@ -26,31 +26,41 @@ public class WPawnPromo implements Initializable {
         this.whichPiece = whichPiece;
     }
 
-
+    /**
+     * pick a rook
+     */
     @FXML
     public void rookClick(){
         setWhichPiece("rook");
         getSecondStage().close();
     }
-
+    /**
+     * pick a knight
+     */
     @FXML
     public void knightClick(){
         setWhichPiece("knight");
         getSecondStage().close();
     }
-
+    /**
+     * pick a bishop
+     */
     @FXML
     public void bishopClick(){
         setWhichPiece("bishop");
         getSecondStage().close();
     }
-
+    /**
+     * pick a queen
+     */
     @FXML
     public void queenClick(){
         setWhichPiece("queen");
         getSecondStage().close();
     }
-
+    /**
+     * init
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {  }
 }

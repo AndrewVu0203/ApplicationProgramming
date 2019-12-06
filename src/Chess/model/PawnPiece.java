@@ -5,6 +5,13 @@ public class PawnPiece  extends Piece {
 	    super(PieceType.Pawn, team, x, y);
     }
 
+	/**
+	 * is move is valid and can be moved
+	 * @param x x-location
+	 * @param y y-location
+	 * @param blocks chessboard
+	 * @return whether we can move
+	 */
     @Override
     public boolean isMoveValid(int x, int y, Block[][] blocks){
         int thisX = this.getX();
@@ -64,8 +71,15 @@ public class PawnPiece  extends Piece {
         }
         return false;
     }
-    
-    public boolean isCollision(int y, Block[][] blocks, String color) {
+
+	/**
+	 * whether is the piece is in the path and we will collide
+	 * @param y y-location
+	 * @param blocks chessboard
+	 * @param color black or white
+	 * @return check whether a piece is collided
+	 */
+	public boolean isCollision(int y, Block[][] blocks, String color) {
     	int dist = Math.abs(this.getY() - y);
     	Piece piece;
     	Block block;
@@ -89,7 +103,14 @@ public class PawnPiece  extends Piece {
 	        }
     	return false;
     }
-    
+
+	/**
+	 * whether you can attack
+	 * @param blocks chessboard
+	 * @param x x-location
+	 * @param y y-location
+	 * @return special function, whether Pawn can attack diagonal
+	 */
     public boolean canAttack(Block[][] blocks, int x, int y) {
     	Piece piece;
 
